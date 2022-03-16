@@ -26,20 +26,20 @@ const Logo: React.FC<LogoProps> = ({ color = "white" }) => (
       />
       <path
         fill="#110F28"
-        fill-opacity=".15"
+        fillOpacity=".15"
         d="m30.163 27.16-6.033-4.292a.5.5 0 0 0-.782.494l1.293 7.298 5.523-3.5Z"
       />
       <path
         stroke="#fff"
-        stroke-linecap="round"
-        stroke-opacity=".4"
-        stroke-width="1.5"
+        strokeLinecap="round"
+        strokeOpacity=".4"
+        strokeWidth="1.5"
         d="M7.592 7.103c-5.11 2.755-4.519 5-4.519 7.5M57.274 26.103v1M3.052 18.103v2M57.274 30.103v5"
       />
       <path
         stroke="#0A0D27"
-        stroke-linecap="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeWidth="2"
         d="M13.053 15.103v6M10.04 18.103h6.025"
       />
       <ellipse
@@ -79,9 +79,9 @@ const Logo: React.FC<LogoProps> = ({ color = "white" }) => (
           y2="49.103"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF5F5F" />
-          <stop offset="1" stop-color="#F062C0" />
-          <stop offset="1" stop-color="#F23131" />
+          <stop stopColor="#FF5F5F" />
+          <stop offset="1" stopColor="#F062C0" />
+          <stop offset="1" stopColor="#F23131" />
         </linearGradient>
       </defs>
     </svg>
