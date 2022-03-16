@@ -10,3 +10,4 @@ import { ThemeProvider } from "styled-components"
 
 export const renderWithTheme = (children: React.ReactNode): RenderResult =>
   render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
+

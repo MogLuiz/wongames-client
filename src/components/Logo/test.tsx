@@ -1,15 +1,17 @@
 // Packages
-import { render, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
+
+// utils
+import { renderWithTheme } from "utils/tests/helpers"
 
 // Components
 import Logo from "."
 
 describe("<Logo />", () => {
-  it("should render the heading", () => {
-    const { container } = render(<Logo />)
-
-    expect(screen.getByRole("heading", { name: /Logo/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+  it("should render a white label by default", () => {
+    renderWithTheme(<Logo />)
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
+      color: "#FAFAFA"
+    })
   })
 })
