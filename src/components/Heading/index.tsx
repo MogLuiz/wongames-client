@@ -8,17 +8,19 @@ export type HeadingProps = {
   children: React.ReactNode
   color?: "white" | "black"
   lineLeft?: boolean
+  lineBottom?: boolean
 }
 
 const Heading: React.FC<HeadingProps> = ({
   children,
-  color = "white",
-  lineLeft = false
+  color = "black",
+  lineLeft = false,
+  lineBottom = false
 }) => (
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
-  <S.Wrapper color={color} lineLeft={lineLeft}>
+  <S.Wrapper color={color} lineLeft={lineLeft} lineBottom={lineBottom}>
     {children}
   </S.Wrapper>
 )
