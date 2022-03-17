@@ -13,7 +13,7 @@ export type HeadingProps = {
 
 const Heading: React.FC<HeadingProps> = ({
   children,
-  color = "black",
+  color = "white",
   lineLeft = false,
   lineBottom = false
 }) => (
