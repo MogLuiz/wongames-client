@@ -7,13 +7,20 @@ import * as S from "./styles"
 export type HeadingProps = {
   children: React.ReactNode
   color?: "white" | "black"
+  lineLeft?: boolean
 }
 
-const Heading: React.FC<HeadingProps> = ({ children, color = "white" }) => (
+const Heading: React.FC<HeadingProps> = ({
+  children,
+  color = "white",
+  lineLeft = false
+}) => (
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
-  <S.Wrapper color={color}>{children}</S.Wrapper>
+  <S.Wrapper color={color} lineLeft={lineLeft}>
+    {children}
+  </S.Wrapper>
 )
 
 export default Heading
