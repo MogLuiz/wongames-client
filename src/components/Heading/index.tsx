@@ -4,13 +4,15 @@ import React from "react"
 // Styles
 import * as S from "./styles"
 
-const Heading: React.FC = () => (
+export type HeadingProps = {
+  children: React.ReactNode
+}
+
+const Heading: React.FC<HeadingProps> = ({ children }) => (
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
-  <S.Wrapper>
-    <h1>Heading</h1>
-  </S.Wrapper>
+  <S.Wrapper>{children}</S.Wrapper>
 )
 
 export default Heading
