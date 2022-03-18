@@ -1,5 +1,6 @@
 // Packages
 import { render, screen } from "@testing-library/react"
+import "jest-styled-components"
 
 // Components
 import MediaMatch from "."
@@ -20,5 +21,13 @@ describe("<MediaMatch />", () => {
         </MediaMatch>
       </>
     )
+
+    desktopHeading = screen.getByTestId("desktop")
+    mobileHeading = screen.getByTestId("desktop")
+  })
+
+  it("should be hidden if no media query is passed", () => {
+    expect(desktopHeading.parentElement).toHaveStyleRule("display", "none")
+    expect(mobileHeading.parentElement).toHaveStyleRule("display", "none")
   })
 })
