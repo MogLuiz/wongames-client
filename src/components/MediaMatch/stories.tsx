@@ -9,4 +9,4 @@ export default {
   component: MediaMatch
 } as Meta
 
-export const Default: Story = () => <MediaMatch />
+export const Default: Story = () => <MediaMatch>Teste</MediaMatch>
