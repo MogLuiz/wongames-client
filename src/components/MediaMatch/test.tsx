@@ -5,13 +5,20 @@ import { render, screen } from "@testing-library/react"
 import MediaMatch from "."
 
 describe("<MediaMatch />", () => {
-  it("should render the heading", () => {
-    const { container } = render(<MediaMatch />)
+  let desktopHeading: Element
+  let mobileHeading: Element
 
-    expect(
-      screen.getByRole("heading", { name: /MediaMatch/i })
-    ).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+  // hooks tests
+  beforeEach(() => {
+    render(
+      <>
+        <MediaMatch greaterThan="medium">
+          <h1 data-testid="desktop">Desktop</h1>
+        </MediaMatch>
+        <MediaMatch lessThan="medium">
+          <h1 data-testid="mobile">Mobile</h1>
+        </MediaMatch>
+      </>
+    )
   })
 })
