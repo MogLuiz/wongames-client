@@ -12,13 +12,15 @@ import Button from "."
 
 describe("<Button />", () => {
   it("should render the medium size by default", () => {
-    renderWithTheme(<Button>Buy now</Button>)
+    const { container } = renderWithTheme(<Button>Buy now</Button>)
 
     expect(screen.getByRole("button", { name: /Buy now/i })).toHaveStyle({
       height: "4rem",
       padding: "0.8rem 3.2rem",
       "font-size": "1.4rem"
     })
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it("should render the small size", () => {
