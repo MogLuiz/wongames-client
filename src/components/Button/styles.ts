@@ -1,10 +1,25 @@
 // Packages
-import styled, { css } from "styled-components"
+import styled, { css, DefaultTheme } from "styled-components"
 
 // Types
 import { ButtonProps } from "."
 
 type WrapperProps = Pick<ButtonProps, "size">
+
+const wrapperModifiers = {
+  small: (theme: DefaultTheme) => css`
+    height: 3rem;
+    font-size: ${theme.font.sizes.xsmall};
+  `,
+  medium: (theme: DefaultTheme) => css`
+    height: 4rem;
+    font-size: ${theme.font.sizes.small};
+  `,
+  large: (theme: DefaultTheme) => css`
+    height: 5rem;
+    font-size: ${theme.font.sizes.medium};
+  `
+}
 
 export const Wrapper = styled.button<WrapperProps>`
   ${({ theme, size }) => css`
@@ -15,5 +30,7 @@ export const Wrapper = styled.button<WrapperProps>`
     border-radius: ${theme.border.radius};
 
     padding: ${theme.spacings.xxsmall};
+
+    ${!!size && wrapperModifiers[size](theme)}
   `}
 `
