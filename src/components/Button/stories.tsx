@@ -13,6 +13,9 @@ export default {
   argTypes: {
     children: {
       type: "string"
+    },
+    icon: {
+      type: ""
     }
   }
 } as Meta
