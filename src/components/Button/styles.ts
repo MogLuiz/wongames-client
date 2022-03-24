@@ -4,7 +4,9 @@ import styled, { css, DefaultTheme } from "styled-components"
 // Types
 import { ButtonProps } from "."
 
-type WrapperProps = Pick<ButtonProps, "size" | "fullWidth">
+type WrapperProps = {
+  hasIcon: boolean
+} & Pick<ButtonProps, "size" | "fullWidth">
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
