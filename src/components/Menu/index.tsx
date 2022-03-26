@@ -17,7 +17,16 @@ const Menu: React.FC = () => (
   // Render
   // -------------------------------------------------
   <S.Wrapper>
-    <h1>Menu</h1>
+    <S.IconWrapper>
+      <MenuIcon />
+    </S.IconWrapper>
+    <Logo />
+    <S.IconWrapper>
+      <SearchIcon />
+    </S.IconWrapper>
+    <S.IconWrapper>
+      <ShoppingCartIcon />
+    </S.IconWrapper>
   </S.Wrapper>
 )
 
