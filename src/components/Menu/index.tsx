@@ -20,13 +20,17 @@ const Menu: React.FC = () => (
     <S.IconWrapper>
       <MenuIcon />
     </S.IconWrapper>
-    <Logo />
-    <S.IconWrapper>
-      <SearchIcon />
-    </S.IconWrapper>
-    <S.IconWrapper>
-      <ShoppingCartIcon />
-    </S.IconWrapper>
+    <S.LogoWrapper>
+      <Logo hideOnMobile />
+    </S.LogoWrapper>
+    <S.MenuGroup>
+      <S.IconWrapper>
+        <SearchIcon />
+      </S.IconWrapper>
+      <S.IconWrapper>
+        <ShoppingCartIcon />
+      </S.IconWrapper>
+    </S.MenuGroup>
   </S.Wrapper>
 )
 
