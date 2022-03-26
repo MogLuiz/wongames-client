@@ -18,7 +18,7 @@ const Menu: React.FC = () => (
   // -------------------------------------------------
   <S.Wrapper>
     <S.IconWrapper>
-      <MenuIcon />
+      <MenuIcon aria-label="Open Menu" />
     </S.IconWrapper>
     <S.LogoWrapper>
       <Logo hideOnMobile />
