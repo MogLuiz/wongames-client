@@ -25,10 +25,10 @@ const Menu: React.FC = () => (
     </S.LogoWrapper>
     <S.MenuGroup>
       <S.IconWrapper>
-        <SearchIcon />
+        <SearchIcon aria-label="search" />
       </S.IconWrapper>
       <S.IconWrapper>
-        <ShoppingCartIcon />
+        <ShoppingCartIcon aria-label="Open Shopping Cart" />
       </S.IconWrapper>
     </S.MenuGroup>
   </S.Wrapper>
