@@ -50,6 +50,10 @@ type MenuFullProps = {
   isOpen: boolean
 }
 
+export const MenuNav = styled.div``
+
+export const MenuLink = styled.a``
+
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ isOpen, theme }) => css`
     opacity: ${isOpen ? 1 : 0};
@@ -67,5 +71,19 @@ export const MenuFull = styled.nav<MenuFullProps>`
     overflow: hidden;
 
     pointer-events: ${isOpen ? "all" : "none"};
+
+    > svg {
+      position: absolute;
+
+      top: 0;
+      right: 0;
+
+      margin: ${theme.spacings.xsmall};
+
+      cursor: pointer;
+
+      width: 2.4rem;
+      height: 2.4rem;
+    }
   `}
 `
