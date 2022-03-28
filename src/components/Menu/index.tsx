@@ -5,6 +5,7 @@ import React, { useState } from "react"
 import { ShoppingCart as ShoppingCartIcon } from "@styled-icons/material-outlined/ShoppingCart"
 import { Menu2 as MenuIcon } from "@styled-icons/remix-fill/Menu2"
 import { Search as SearchIcon } from "@styled-icons/material-outlined/Search"
+import { Close as CloseIcon } from "@styled-icons/material-outlined/Close"
 
 // Components
 import { Logo } from ".."
@@ -36,7 +37,9 @@ const Menu: React.FC = () => {
           <ShoppingCartIcon aria-label="Open Shopping Cart" />
         </S.IconWrapper>
       </S.MenuGroup>
-      <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen} />
+      <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
+        <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
+      </S.MenuFull>
     </S.Wrapper>
   )
 }
