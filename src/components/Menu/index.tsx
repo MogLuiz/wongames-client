@@ -31,6 +31,7 @@ const Menu: React.FC = () => (
         <ShoppingCartIcon aria-label="Open Shopping Cart" />
       </S.IconWrapper>
     </S.MenuGroup>
+    <S.MenuFull aria-hidden="true" />
   </S.Wrapper>
 )
 
