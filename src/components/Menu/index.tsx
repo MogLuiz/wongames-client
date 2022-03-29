@@ -56,15 +56,17 @@ const Menu: React.FC<MenuProps> = ({ userName }) => {
           )}
         </S.MenuNav>
 
-        <S.RegisterBox>
-          <Button fullWidth size="large">
-            Entrar
-          </Button>
-          <span>ou</span>
-          <S.CreateAccount href="#" title="Sign In">
-            Crie sua conta
-          </S.CreateAccount>
-        </S.RegisterBox>
+        {!userName && (
+          <S.RegisterBox>
+            <Button fullWidth size="large">
+              Entrar
+            </Button>
+            <span>ou</span>
+            <S.CreateAccount href="#" title="Sign In">
+              Crie sua conta
+            </S.CreateAccount>
+          </S.RegisterBox>
+        )}
       </S.MenuFull>
     </S.Wrapper>
   )
