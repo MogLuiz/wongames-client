@@ -13,7 +13,11 @@ import { Button, Logo } from ".."
 // Styles
 import * as S from "./styles"
 
-const Menu: React.FC = () => {
+export type MenuProps = {
+  userName?: string
+}
+
+const Menu: React.FC<MenuProps> = ({ userName }) => {
   // -------------------------------------------------
   // States
   // -------------------------------------------------
@@ -44,10 +48,12 @@ const Menu: React.FC = () => {
           <S.MenuLink href="#">Início</S.MenuLink>
           <S.MenuLink href="#">Explorar</S.MenuLink>
 
-          <>
-            <S.MenuLink href="#">Minha conta</S.MenuLink>
-            <S.MenuLink href="#">Lista de desejos</S.MenuLink>
-          </>
+          {!!userName && (
+            <>
+              <S.MenuLink href="#">Minha conta</S.MenuLink>
+              <S.MenuLink href="#">Lista de desejos</S.MenuLink>
+            </>
+          )}
         </S.MenuNav>
 
         <S.RegisterBox>
