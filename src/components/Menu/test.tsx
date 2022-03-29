@@ -20,16 +20,26 @@ describe("<Menu />", () => {
 
     // Selecionar o nosso MenuFull
     const fullMenuElement = screen.getByRole("navigation", { hidden: true })
+
     // Verificar se o menu tá escondido
     expect(fullMenuElement.getAttribute("aria-hidden")).toBe("true")
     expect(fullMenuElement).toHaveStyle({ opacity: 0 })
+
     // Clicar no botão de abrir o menu e verificar se ele abriu
     fireEvent.click(screen.getByLabelText(/open menu/i))
     expect(fullMenuElement.getAttribute("aria-hidden")).toBe("false")
     expect(fullMenuElement).toHaveStyle({ opacity: 1 })
+
     // Clicar no botão de fechar o menu e verificar se ele fechou
     fireEvent.click(screen.getByLabelText(/Close Menu/i))
     expect(fullMenuElement.getAttribute("aria-hidden")).toBe("true")
     expect(fullMenuElement).toHaveStyle({ opacity: 0 })
+  })
+
+  it("should show register box when logged out", () => {
+    renderWithTheme(<Menu />)
+
+    expect(screen.getByText(/entrar/i)).toBeInTheDocument()
+    expect(screen.getByText(/crie sua conta/i)).toBeInTheDocument()
   })
 })
