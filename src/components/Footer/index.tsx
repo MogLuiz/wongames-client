@@ -17,7 +17,7 @@ const Footer: React.FC = () => (
     <S.Content>
       <S.Column>
         <Heading color="black" size="small" lineBottom lineColor="secondary">
-          CONTATO
+          Contato
         </Heading>
 
         <a href="malito:sac@wongames.com">suporte@wongames.gg</a>
@@ -25,7 +25,7 @@ const Footer: React.FC = () => (
 
       <S.Column>
         <Heading color="black" size="small" lineBottom lineColor="secondary">
-          NOS ACOMPANHE
+          Redes
         </Heading>
 
         <nav aria-labelledby="social media">
