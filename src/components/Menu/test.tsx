@@ -1,5 +1,7 @@
 // Packages
 import { fireEvent, screen } from "@testing-library/react"
+
+// Utils
 import { renderWithTheme } from "utils/tests/helpers"
 
 // Components

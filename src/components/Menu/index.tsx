@@ -8,7 +8,7 @@ import { Search as SearchIcon } from "@styled-icons/material-outlined/Search"
 import { Close as CloseIcon } from "@styled-icons/material-outlined/Close"
 
 // Components
-import { Button, Logo } from ".."
+import { Button, Logo, MediaMatch } from ".."
 
 // Styles
 import * as S from "./styles"
@@ -27,12 +27,16 @@ const Menu: React.FC<MenuProps> = ({ userName }) => {
   // -------------------------------------------------
   return (
     <S.Wrapper>
-      <S.IconWrapper onClick={() => setIsOpen(true)}>
-        <MenuIcon aria-label="Open Menu" />
-      </S.IconWrapper>
+      <MediaMatch lessThan="medium">
+        <S.IconWrapper onClick={() => setIsOpen(true)}>
+          <MenuIcon aria-label="Open Menu" />
+        </S.IconWrapper>
+      </MediaMatch>
+
       <S.LogoWrapper>
         <Logo hideOnMobile />
       </S.LogoWrapper>
+
       <S.MenuGroup>
         <S.IconWrapper>
           <SearchIcon aria-label="search" />
