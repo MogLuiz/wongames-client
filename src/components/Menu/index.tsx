@@ -37,6 +37,13 @@ const Menu: React.FC<MenuProps> = ({ userName }) => {
         <Logo hideOnMobile />
       </S.LogoWrapper>
 
+      <MediaMatch greaterThan="medium">
+        <S.MenuNav>
+          <S.MenuLink href="#">Início</S.MenuLink>
+          <S.MenuLink href="#">Explorar</S.MenuLink>
+        </S.MenuNav>
+      </MediaMatch>
+
       <S.MenuGroup>
         <S.IconWrapper>
           <SearchIcon aria-label="search" />
