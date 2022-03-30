@@ -26,7 +26,7 @@ describe("<Heading />", () => {
   it("should render a Heading with a line to the left side", () => {
     renderWithTheme(<Heading lineLeft>Won Games</Heading>)
     expect(screen.getByRole("heading", { name: /won games/i })).toHaveStyle({
-      "border-left": "0.7rem solid #3CD3C1"
+      "border-left": "0.7rem solid #F231A5"
     })
   })
 
@@ -65,7 +65,7 @@ describe("<Heading />", () => {
 
     const heading = screen.getByRole("heading", { name: /lorem ipsum/i })
     expect(heading).toHaveStyle({ "border-left": "0.7rem solid #3CD3C1" })
-    expect(heading).toHaveStyleRule("border-bottom", "0.7rem solid #3CD3C1", {
+    expect(heading).toHaveStyleRule("border-bottom", "0.5rem solid #3CD3C1", {
       modifier: "::after"
     })
   })
