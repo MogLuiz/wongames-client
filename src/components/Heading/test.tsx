@@ -55,4 +55,18 @@ describe("<Heading />", () => {
       }
     )
   })
+
+  it("should render a Heading with a secondary line color", () => {
+    renderWithTheme(
+      <Heading lineColor="secondary" lineBottom lineLeft>
+        Lorem Ipsum
+      </Heading>
+    )
+
+    const heading = screen.getByRole("heading", { name: /lorem ipsum/i })
+    expect(heading).toHaveStyle({ "border-left": "0.7rem solid #3CD3C1" })
+    expect(heading).toHaveStyleRule("border-bottom", "0.7rem solid #3CD3C1", {
+      modifier: "::after"
+    })
+  })
 })
