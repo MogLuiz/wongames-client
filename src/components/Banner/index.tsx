@@ -1,6 +1,9 @@
 // Packages
 import React from "react"
 
+// Components
+import { Button } from "components"
+
 // Styles
 import * as S from "./styles"
 
@@ -23,7 +26,15 @@ const Banner: React.FC<BannerProps> = ({
   // Render
   // -------------------------------------------------
   <S.Wrapper>
-    <h1>Banner</h1>
+    <S.Image src={img} role="img" aria-label={title} />
+
+    <S.Caption>
+      <S.Title>{title}</S.Title>
+      <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
+      <Button as="a" href={buttonLink} size="large">
+        {buttonLabel}
+      </Button>
+    </S.Caption>
   </S.Wrapper>
 )
 
