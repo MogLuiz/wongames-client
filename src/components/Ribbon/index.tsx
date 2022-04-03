@@ -4,13 +4,15 @@ import React from "react"
 // Styles
 import * as S from "./styles"
 
-const Ribbon: React.FC = () => (
+export type RibbonProps = {
+  children: React.ReactNode
+}
+
+const Ribbon: React.FC<RibbonProps> = ({ children }) => (
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
-  <S.Wrapper>
-    <h1>Ribbon</h1>
-  </S.Wrapper>
+  <S.Wrapper>{children}</S.Wrapper>
 )
 
 export default Ribbon

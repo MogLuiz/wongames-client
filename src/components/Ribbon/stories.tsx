@@ -18,6 +18,6 @@ export const Default: Story = () => (
       backgroundColor: "#888"
     }}
   >
-    <Ribbon />
+    <Ribbon>Best Seller</Ribbon>
   </div>
 )
