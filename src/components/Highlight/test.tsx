@@ -1,5 +1,5 @@
 // Packages
-import { render, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
 
 // Utils
 import { renderWithTheme } from "utils/tests/helpers"
@@ -9,7 +9,9 @@ import Highlight from "."
 
 const props = {
   title: "Heading 1",
-  subtitle: "Heading 2"
+  subtitle: "Heading 2",
+  buttonLabel: "Buy now",
+  buttonLink: "/rdr2"
 }
 
 describe("<Highlight />", () => {
@@ -23,5 +25,7 @@ describe("<Highlight />", () => {
     expect(
       screen.getByRole("heading", { name: /heading 2/i })
     ).toBeInTheDocument()
+
+    expect(screen.getByRole("link", { name: /buy now/i })).toBeInTheDocument()
   })
 })
