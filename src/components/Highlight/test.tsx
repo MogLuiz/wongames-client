@@ -14,7 +14,7 @@ const props = {
 
 describe("<Highlight />", () => {
   it("should render heading and button", () => {
-    const { container } = renderWithTheme(<Highlight {...props} />)
+    renderWithTheme(<Highlight {...props} />)
 
     expect(
       screen.getByRole("heading", { name: /heading 1/i })
@@ -23,7 +23,5 @@ describe("<Highlight />", () => {
     expect(
       screen.getByRole("heading", { name: /heading 2/i })
     ).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 })

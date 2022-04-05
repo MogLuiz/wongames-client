@@ -4,12 +4,18 @@ import React from "react"
 // Styles
 import * as S from "./styles"
 
-const Highlight: React.FC = () => (
+type HighlightProps = {
+  title: string
+  subtitle: string
+}
+
+const Highlight: React.FC<HighlightProps> = ({ title, subtitle }) => (
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
   <S.Wrapper>
-    <h1>Highlight</h1>
+    <S.Title>{title}</S.Title>
+    <S.Subtitle>{subtitle}</S.Subtitle>
   </S.Wrapper>
 )
 
