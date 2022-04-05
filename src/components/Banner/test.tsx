@@ -31,4 +31,15 @@ describe("<Banner />", () => {
 
     expect(container.firstChild).toMatchSnapshot()
   })
+
+  it("", () => {
+    renderWithTheme(
+      <Banner
+        {...props}
+        ribbon="My Ribbon"
+        ribonSize="small"
+        ribbonColor="secondary"
+      />
+    )
+  })
 })
