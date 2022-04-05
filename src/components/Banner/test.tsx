@@ -37,7 +37,7 @@ describe("<Banner />", () => {
       <Banner
         {...props}
         ribbon="My Ribbon"
-        ribonSize="small"
+        ribbonSize="small"
         ribbonColor="secondary"
       />
     )
