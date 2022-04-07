@@ -55,4 +55,15 @@ describe("<Highlight />", () => {
       '"floatimage content"'
     )
   })
+
+  it("should render align left by props", () => {
+    const { container } = renderWithTheme(
+      <Highlight {...props} alignment="left" />
+    )
+
+    expect(container.firstChild).toHaveStyleRule(
+      "grid-template-areas",
+      '"content floatimage"'
+    )
+  })
 })
