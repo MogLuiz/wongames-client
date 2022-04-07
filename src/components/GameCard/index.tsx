@@ -34,19 +34,21 @@ const GameCard: React.FC<GameCardProps> = ({
       <img src={img} alt={title} />
     </S.ImageBox>
 
-    <S.Info>
-      <S.Title>{title}</S.Title>
-      <S.Developer>{developer}</S.Developer>
-    </S.Info>
+    <S.Content>
+      <S.Info>
+        <S.Title>{title}</S.Title>
+        <S.Developer>{developer}</S.Developer>
+      </S.Info>
 
-    <S.FavButton>
-      <FavoriteBorder aria-label="Add to Wishlist" />
-    </S.FavButton>
+      <S.FavButton>
+        <FavoriteBorder aria-label="Add to Wishlist" />
+      </S.FavButton>
 
-    <S.BuyBox>
-      <S.Price>{price}</S.Price>
-      <Button icon={<AddShoppingCart />} size="small" />
-    </S.BuyBox>
+      <S.BuyBox>
+        <S.Price>{price}</S.Price>
+        <Button icon={<AddShoppingCart />} size="small" />
+      </S.BuyBox>
+    </S.Content>
   </S.Wrapper>
 )
 
