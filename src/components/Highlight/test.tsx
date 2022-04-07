@@ -72,5 +72,9 @@ describe("<Highlight />", () => {
       "grid-template-areas",
       '"content floatimage"'
     )
+
+    expect(container.firstChild).toHaveStyleRule("text-align", "left", {
+      modifier: `${S.Content}`
+    })
   })
 })

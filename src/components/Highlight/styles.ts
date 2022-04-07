@@ -8,6 +8,7 @@ import { HighlightProps } from "."
 const WrapperModifiers = {
   right: () => css`
     grid-template-areas: "floatimage content";
+    grid-template-columns: 1.3fr 2fr;
 
     ${Content} {
       text-align: right;
@@ -15,6 +16,14 @@ const WrapperModifiers = {
   `,
   left: () => css`
     grid-template-areas: "content floatimage";
+
+    ${Content} {
+      text-align: left;
+    }
+
+    ${FloatImage} {
+      justify-self: end;
+    }
   `
 }
 
@@ -28,7 +37,7 @@ export const Wrapper = styled.section<WrapperProps>`
     background-size: cover;
     height: 23rem;
     display: grid;
-    grid-template-columns: 1.3fr 2fr;
+
     &::after {
       content: "";
       position: absolute;
