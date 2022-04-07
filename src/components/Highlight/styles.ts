@@ -1,11 +1,20 @@
 // Packages
 import styled, { css } from "styled-components"
 
-export const Wrapper = styled.section`
-  ${({ theme }) => css`
+// Types
+import { HighlightProps } from "."
+
+type WrapperProps = Pick<HighlightProps, "backgroundImage">
+
+export const Wrapper = styled.section<WrapperProps>`
+  ${({ theme, backgroundImage }) => css`
     position: relative;
     height: 23rem;
     display: grid;
+
+    background-image: url(${backgroundImage});
+    background-position: center center;
+    background-size: cover;
 
     &::after {
       content: "";

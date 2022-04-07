@@ -12,18 +12,20 @@ export type HighlightProps = {
   subtitle: string
   buttonLabel: string
   buttonLink: string
+  backgroundImage: string
 }
 
 const Highlight: React.FC<HighlightProps> = ({
   title,
   subtitle,
   buttonLabel,
-  buttonLink
+  buttonLink,
+  backgroundImage
 }) => (
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
-  <S.Wrapper>
+  <S.Wrapper backgroundImage={backgroundImage}>
     <S.Content>
       <S.Title>{title}</S.Title>
       <S.Subtitle>{subtitle}</S.Subtitle>
