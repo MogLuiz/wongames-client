@@ -8,11 +8,11 @@ export default {
   title: "Highlight",
   component: Highlight,
   args: {
-    title: "Read Dead está de de volta!",
-    subtitle: "Venha conhecer as novas aventuras de John",
+    title: "Read Dead is back!",
+    subtitle: "Come see John’s new adventures",
     backgroundImage: "/img/red-dead-img.jpg",
     buttonLabel: "Buy now",
-    buttonLink: "/rdr2"
+    buttonLink: "/games/rdr2"
   }
 } as Meta
 
