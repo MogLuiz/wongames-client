@@ -2,7 +2,13 @@
 import React from "react"
 
 // Assets
-import { Favorite, FavoriteBorder } from "@styled-icons/material-outlined"
+import {
+  FavoriteBorder,
+  AddShoppingCart
+} from "@styled-icons/material-outlined"
+
+// Components
+import { Button } from "components"
 
 // Styles
 import * as S from "./styles"
@@ -37,7 +43,10 @@ const GameCard: React.FC<GameCardProps> = ({
       <FavoriteBorder aria-label="Add to Wishlist" />
     </S.FavButton>
 
-    {/* <S.BuyBox></S.BuyBox> */}
+    <S.BuyBox>
+      <S.Price>{price}</S.Price>
+      <Button icon={<AddShoppingCart />} size="small" />
+    </S.BuyBox>
   </S.Wrapper>
 )
 
