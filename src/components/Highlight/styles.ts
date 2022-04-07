@@ -1,7 +1,7 @@
 // Packages
 import styled, { css } from "styled-components"
 
-export const Wrapper = styled.main`
+export const Wrapper = styled.section`
   ${({ theme }) => css`
     position: relative;
     height: 23rem;
