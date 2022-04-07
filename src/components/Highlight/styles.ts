@@ -31,6 +31,8 @@ export const Wrapper = styled.section<WrapperProps>`
   `}
 `
 
+export const FloatImage = styled.img``
+
 export const Content = styled.div`
   ${({ theme }) => css`
     z-index: ${theme.layers.base};
