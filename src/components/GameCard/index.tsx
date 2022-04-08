@@ -18,13 +18,15 @@ export type GameCardProps = {
   developer: string
   img: string
   price: string
+  promotionalPrice?: string
 }
 
 const GameCard: React.FC<GameCardProps> = ({
   title,
   developer,
   img,
-  price
+  price,
+  promotionalPrice
 }) => (
   // -------------------------------------------------
   // Render
@@ -45,7 +47,8 @@ const GameCard: React.FC<GameCardProps> = ({
       </S.FavButton>
 
       <S.BuyBox>
-        <S.Price>{price}</S.Price>
+        {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
+        <S.Price>{promotionalPrice || price}</S.Price>
         <Button icon={<AddShoppingCart />} size="small" />
       </S.BuyBox>
     </S.Content>
