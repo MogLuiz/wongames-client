@@ -2,6 +2,7 @@
 import { screen } from "@testing-library/react"
 
 // Utils
+import theme from "styles/theme"
 import { renderWithTheme } from "utils/tests/helpers"
 
 // Components
@@ -32,5 +33,14 @@ describe("<GameCard />", () => {
     )
 
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
+  })
+
+  it("should render price in label", () => {
+    renderWithTheme(<GameCard {...props} />)
+
+    const priceBox = screen.getByText("R$ 235,00")
+
+    expect(priceBox).not.toHaveStyle({ textDecoration: "line-through" })
+    expect(priceBox).toHaveStyle({ backgroundColor: theme.colors.secondary })
   })
 })
