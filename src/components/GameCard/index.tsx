@@ -21,6 +21,7 @@ export type GameCardProps = {
   price: string
   promotionalPrice?: string
   favorite?: boolean
+  onFav?: () => void
 }
 
 const GameCard: React.FC<GameCardProps> = ({
@@ -29,7 +30,8 @@ const GameCard: React.FC<GameCardProps> = ({
   img,
   price,
   promotionalPrice,
-  favorite = false
+  favorite = false,
+  onFav
 }) => (
   // -------------------------------------------------
   // Render
@@ -44,7 +46,7 @@ const GameCard: React.FC<GameCardProps> = ({
         <S.Title>{title}</S.Title>
         <S.Developer>{developer}</S.Developer>
       </S.Info>
-      <S.FavButton role="button">
+      <S.FavButton role="button" onClick={onFav}>
         {favorite ? (
           <Favorite aria-label="Remove from Wishlist" />
         ) : (
