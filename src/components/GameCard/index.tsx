@@ -44,7 +44,7 @@ const GameCard: React.FC<GameCardProps> = ({
         <S.Title>{title}</S.Title>
         <S.Developer>{developer}</S.Developer>
       </S.Info>
-      <S.FavButton>
+      <S.FavButton role="button">
         {favorite ? (
           <Favorite aria-label="Remove from Wishlist" />
         ) : (

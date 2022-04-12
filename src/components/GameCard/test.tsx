@@ -1,5 +1,5 @@
 // Packages
-import { screen } from "@testing-library/react"
+import { screen, fireEvent } from "@testing-library/react"
 
 // Utils
 import theme from "styles/theme"
@@ -72,5 +72,14 @@ describe("<GameCard />", () => {
     renderWithTheme(<GameCard {...props} favorite />)
 
     expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
+  })
+
+  it("should call onFav method when favorite is clicked", () => {
+    const onFav = jest.fn()
+    renderWithTheme(<GameCard {...props} favorite onFav={onFav} />)
+
+    fireEvent.click(screen.getAllByRole("button")[0])
+
+    expect(onFav).toBeCalled()
   })
 })
