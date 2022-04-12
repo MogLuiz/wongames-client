@@ -71,6 +71,6 @@ describe("<GameCard />", () => {
   it("should render a filled favorite icon when favorite is true", () => {
     renderWithTheme(<GameCard {...props} favorite />)
 
-    expect(screen.getByLabelText(/remove to wishlist/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
   })
 })

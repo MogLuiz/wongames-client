@@ -4,6 +4,7 @@ import React from "react"
 // Assets
 import {
   FavoriteBorder,
+  Favorite,
   AddShoppingCart
 } from "@styled-icons/material-outlined"
 
@@ -19,6 +20,7 @@ export type GameCardProps = {
   img: string
   price: string
   promotionalPrice?: string
+  favorite?: boolean
 }
 
 const GameCard: React.FC<GameCardProps> = ({
@@ -26,7 +28,8 @@ const GameCard: React.FC<GameCardProps> = ({
   developer,
   img,
   price,
-  promotionalPrice
+  promotionalPrice,
+  favorite = false
 }) => (
   // -------------------------------------------------
   // Render
@@ -41,9 +44,12 @@ const GameCard: React.FC<GameCardProps> = ({
         <S.Title>{title}</S.Title>
         <S.Developer>{developer}</S.Developer>
       </S.Info>
-
       <S.FavButton>
-        <FavoriteBorder aria-label="Add to Wishlist" />
+        {favorite ? (
+          <Favorite aria-label="Remove from Wishlist" />
+        ) : (
+          <FavoriteBorder aria-label="Add to Wishlist" />
+        )}
       </S.FavButton>
 
       <S.BuyBox>
