@@ -11,6 +11,9 @@ import {
 // Components
 import { Button } from "components"
 
+// Types
+import Ribbon, { RibbonColors, RibbonSizes } from "components/Ribbon"
+
 // Styles
 import * as S from "./styles"
 
@@ -21,6 +24,9 @@ export type GameCardProps = {
   price: string
   promotionalPrice?: string
   favorite?: boolean
+  ribbon?: React.ReactNode
+  ribbonColor?: RibbonColors
+  ribbonSize?: RibbonSizes
   onFav?: () => void
 }
 
@@ -31,12 +37,21 @@ const GameCard: React.FC<GameCardProps> = ({
   price,
   promotionalPrice,
   favorite = false,
+  ribbon,
+  ribbonColor = "primary",
+  ribbonSize = "small",
   onFav
 }) => (
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
   <S.Wrapper>
+    {!!ribbon && (
+      <Ribbon color={ribbonColor} size={ribbonSize}>
+        {ribbon}
+      </Ribbon>
+    )}
+
     <S.ImageBox>
       <img src={img} alt={title} />
     </S.ImageBox>
