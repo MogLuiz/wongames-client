@@ -1,6 +1,9 @@
 // Packages
 import { render, screen } from "@testing-library/react"
 
+// Mock
+import "match-media-mock"
+
 // Components
 import Slider from "."
 
