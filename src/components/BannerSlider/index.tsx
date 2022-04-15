@@ -2,7 +2,7 @@
 import React from "react"
 
 // Components
-import Slider from "../Slider"
+import Slider, { SliderSettings } from "../Slider"
 import Banner, { BannerProps } from "components/Banner"
 
 // Styles
@@ -12,7 +12,22 @@ export type BannerSliderProps = {
   items: BannerProps[]
 }
 
-const settings = {}
+const settings: SliderSettings = {
+  dots: true,
+  arrows: false,
+  vertical: true,
+  verticalSwiping: true,
+  infinite: false,
+  responsive: [
+    {
+      breakpoint: 1170,
+      settings: {
+        vertical: false,
+        verticalSwiping: false
+      }
+    }
+  ]
+}
 
 const BannerSlider: React.FC<BannerSliderProps> = ({ items }) => (
   // -------------------------------------------------
