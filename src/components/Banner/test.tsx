@@ -4,6 +4,9 @@ import { screen } from "@testing-library/react"
 // Utils
 import { renderWithTheme } from "utils/tests/helpers"
 
+// Mock
+import "match-media-mock"
+
 const props = {
   img: "https://source.unsplash.com/user/willianjusten/1042x580",
   title: "Defy death",

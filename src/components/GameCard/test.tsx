@@ -5,6 +5,9 @@ import { screen, fireEvent } from "@testing-library/react"
 import theme from "styles/theme"
 import { renderWithTheme } from "utils/tests/helpers"
 
+// Mock
+import "match-media-mock"
+
 // Components
 import GameCard from "."
 

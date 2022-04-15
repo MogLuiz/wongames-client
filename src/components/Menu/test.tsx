@@ -4,6 +4,9 @@ import { fireEvent, screen } from "@testing-library/react"
 // Utils
 import { renderWithTheme } from "utils/tests/helpers"
 
+// Mock
+import "match-media-mock"
+
 // Components
 import Menu from "."
 

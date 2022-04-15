@@ -2,6 +2,9 @@
 import { screen } from "@testing-library/react"
 import { renderWithTheme } from "utils/tests/helpers"
 
+// Mock
+import "match-media-mock"
+
 // Components
 import Footer from "."
 
