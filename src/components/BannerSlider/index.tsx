@@ -8,7 +8,7 @@ import Banner, { BannerProps } from "components/Banner"
 // Styles
 import * as S from "./styles"
 
-type BannerSliderProps = {
+export type BannerSliderProps = {
   items: BannerProps[]
 }
 
