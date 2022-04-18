@@ -10,6 +10,7 @@ export const Wrapper = styled.section`
       align-items: center;
       justify-content: center;
       margin-top: ${theme.spacings.small};
+
       li {
         background: ${theme.colors.white};
         width: 1.2rem;
@@ -24,6 +25,7 @@ export const Wrapper = styled.section`
           background: ${theme.colors.primary};
         }
       }
+
       button {
         opacity: 0;
         width: 1.2rem;
@@ -31,6 +33,7 @@ export const Wrapper = styled.section`
         cursor: pointer;
       }
     }
+
     ${media.greaterThan("large")`
       ${BannerStyles.Wrapper} {
         max-width: 104rem;
@@ -43,6 +46,7 @@ export const Wrapper = styled.section`
         height: 100%;
         top: 0;
         margin: 0;
+
         li {
           margin: ${theme.spacings.xxsmall} 0;
         }
