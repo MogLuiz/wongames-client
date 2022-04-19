@@ -11,7 +11,7 @@ import Slider from "components/Slider"
 // Styles
 import * as S from "./styles"
 
-type GameCardSliderProps = {
+export type GameCardSliderProps = {
   items: GameCardProps[]
   color?: "white" | "black"
 }
