@@ -1,16 +1,16 @@
 // Packages
-import React from "react"
+import styled, { css } from "styled-components"
 
-// Styles
-import * as S from "./styles"
+const Container = styled.div`
+  ${({ theme }) => css`
+    max-width: ${theme.grid.container};
 
-const Container: React.FC = () => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
-  <S.Wrapper>
-    <h1>Container</h1>
-  </S.Wrapper>
-)
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: calc(${theme.grid.gutter} / 2);
+    padding-right: calc(${theme.grid.gutter} / 2);
+  `}
+`
 
 export default Container
