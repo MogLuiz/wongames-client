@@ -7,6 +7,19 @@ import GlobalStyles from "styles/global"
 export const parameters = {
   nextRouter: {
     Provider: RouterContext.Provider
+  },
+  backgrounds: {
+    default: "won-light",
+    values: [
+      {
+        name: "won-light",
+        value: theme.colors.white
+      },
+      {
+        name: "won-dark",
+        value: theme.colors.mainBg
+      }
+    ]
   }
 }
 
