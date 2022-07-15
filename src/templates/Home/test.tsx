@@ -5,11 +5,9 @@ import { render, screen } from "@testing-library/react"
 import Home from "."
 
 describe("<Home />", () => {
-  it("should render the heading", () => {
-    const { container } = render(<Home />)
+  it("should render the Menu and Footer", () => {
+    render(<Home />)
 
-    expect(screen.getByRole("heading", { name: /Home/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
   })
 })
