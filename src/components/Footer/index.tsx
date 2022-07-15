@@ -3,7 +3,8 @@ import React from "react"
 import Link from "next/link"
 
 // Component
-import { Heading, Logo } from ".."
+import Logo from "components/Logo"
+import Heading from "components/Heading"
 
 // Styles
 import * as S from "./styles"

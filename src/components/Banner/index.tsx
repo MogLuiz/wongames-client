@@ -2,7 +2,7 @@
 import React from "react"
 
 // Components
-import { Button } from "components"
+import Button from "components/Button"
 import Ribbon, { RibbonColors, RibbonSizes } from "components/Ribbon"
 
 // Styles

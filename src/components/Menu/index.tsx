@@ -8,7 +8,9 @@ import { Search as SearchIcon } from "@styled-icons/material-outlined/Search"
 import { Close as CloseIcon } from "@styled-icons/material-outlined/Close"
 
 // Components
-import { Button, Logo, MediaMatch } from ".."
+import MediaMatch from "components/MediaMatch"
+import Button from "components/Button"
+import Logo from "components/Logo"
 
 // Styles
 import * as S from "./styles"

@@ -9,7 +9,7 @@ import {
 } from "@styled-icons/material-outlined"
 
 // Components
-import { Button } from "components"
+import Button from "components/Button"
 
 // Types
 import Ribbon, { RibbonColors, RibbonSizes } from "components/Ribbon"
