@@ -5,10 +5,10 @@ import React from "react"
 import Menu from "components/Menu"
 import Container from "components/Container"
 import Footer from "components/Footer"
+import Heading from "components/Heading"
 
 // Styles
 import * as S from "./styles"
-import Heading from "components/Heading"
 
 const Home = () => (
   <section>
