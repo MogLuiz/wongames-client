@@ -12,5 +12,8 @@ describe("<Home />", () => {
     renderWithTheme(<Home />)
 
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
+    expect(
+      screen.getByRole("heading", { name: /Contato/i })
+    ).toBeInTheDocument()
   })
 })
