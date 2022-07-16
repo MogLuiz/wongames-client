@@ -59,4 +59,14 @@ describe("<Home />", () => {
     expect(releaseSection).toBeInTheDocument()
     expect(upcommingSection).toBeInTheDocument()
   })
+
+  it("should render section elements", () => {
+    factorySetupTest()
+    // banner
+    expect(screen.getAllByText(/defy death 1/i)).toHaveLength(1)
+    // card game ( 5 sections com 4 cards cada = 5x4 = 20)
+    expect(screen.getAllByText(/population zero/i)).toHaveLength(20)
+    // highlight
+    expect(screen.getAllByText(/read dead is back!/i)).toHaveLength(3)
+  })
 })
