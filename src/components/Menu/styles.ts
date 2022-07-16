@@ -105,7 +105,8 @@ export const MenuFull = styled.nav<MenuFullProps>`
 
     background: ${theme.colors.white};
 
-    position: absolute;
+    position: fixed;
+    z-index: ${theme.layers.menu};
 
     top: 0;
     bottom: 0;

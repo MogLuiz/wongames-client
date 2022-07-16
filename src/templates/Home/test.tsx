@@ -1,4 +1,5 @@
 // Packages
+import "match-media-mock"
 import { screen } from "@testing-library/react"
 
 // Utils
@@ -6,9 +7,24 @@ import { renderWithTheme } from "utils/tests/helpers"
 
 // Components
 import Home from "."
+import bannerMock from "components/BannerSlider/mock"
+import gamesMock from "components/GameCardSlider/mock"
+import highlightMock from "components/Highlight/mock"
+
+const props = {
+  banners: bannerMock,
+  newGames: gamesMock,
+  mostPopularHighlight: highlightMock,
+  mostPopularGames: gamesMock,
+  upcommingGames: gamesMock,
+  upcommingHighlight: highlightMock,
+  upcommingMoreGames: gamesMock,
+  freeGames: gamesMock,
+  freeHighlight: highlightMock
+}
 
 const factorySetupTest = () => {
-  const utils = renderWithTheme(<Home />)
+  const utils = renderWithTheme(<Home {...props} />)
 
   const releaseSection = screen.getByRole("heading", { name: /New Releases/i })
   const popularSection = screen.getByRole("heading", { name: /Most Popular/i })
