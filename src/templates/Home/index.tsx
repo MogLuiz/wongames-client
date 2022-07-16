@@ -10,7 +10,7 @@ import Heading from "components/Heading"
 // Styles
 import * as S from "./styles"
 
-const Home = () => (
+const Home = ({ heading }: any) => (
   <section>
     <Container>
       <Menu />
