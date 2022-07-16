@@ -1,6 +1,10 @@
-import Home from "templates/Home"
+import Home, { HomeTemplateProps } from "templates/Home"
 
-export default function Index(props: any) {
+import bannersMock from "components/BannerSlider/mock"
+import gamesMock from "components/GameCardSlider/mock"
+import highlightMock from "components/Highlight/mock"
+
+export default function Index(props: HomeTemplateProps) {
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
@@ -10,7 +14,15 @@ export default function Index(props: any) {
 export async function getStaticProps() {
   return {
     props: {
-      ola: "x"
+      banners: bannersMock,
+      newGames: gamesMock,
+      mostPopularHighlight: highlightMock,
+      mostPopularGames: gamesMock,
+      upcommingGames: gamesMock,
+      upcommingHighlight: highlightMock,
+      upcommingMoreGames: gamesMock,
+      freeGames: gamesMock,
+      freeHighlight: highlightMock
     }
   }
 }
