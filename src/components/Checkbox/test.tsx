@@ -14,12 +14,12 @@ const factorySetupTest = () => {
   // this getting the input because the html attribute for associates the label with ID with the same value
   const InputElementByCheckboxLabelText =
     screen.getByLabelText(/checkbox label/i)
-  const checkBoxElementByText = screen.getByText(/checkbox label/i)
+  const labelElementByText = screen.getByText(/checkbox label/i)
 
   return {
     InputElementByCheckboxRole,
     InputElementByCheckboxLabelText,
-    checkBoxElementByText,
+    labelElementByText,
     ...utils
   }
 }
@@ -34,8 +34,14 @@ describe("<Checkbox />", () => {
   })
 
   it("should make the correct association of the htmlFor(for) attribute", () => {
-    const { checkBoxElementByText } = factorySetupTest()
+    const { labelElementByText } = factorySetupTest()
 
-    expect(checkBoxElementByText).toHaveAttribute("for", "check")
+    expect(labelElementByText).toHaveAttribute("for", "check")
+  })
+
+  it("should ensure that when the label property is not passed the HTML label element is not rendered", () => {
+    renderWithTheme(<Checkbox />)
+
+    expect(screen.queryByLabelText(/checkbox label/i)).not.toBeInTheDocument()
   })
 })
