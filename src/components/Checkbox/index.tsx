@@ -4,12 +4,10 @@ import React from "react"
 // Styles
 import * as S from "./styles"
 
-const Checkbox: React.FC = () => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+const Checkbox = () => (
   <S.Wrapper>
-    <h1>Checkbox</h1>
+    <input id="action" type="checkbox" />
+    <label htmlFor="action">Action</label>
   </S.Wrapper>
 )
 
