@@ -10,8 +10,8 @@ type ButtonTypes =
 
 export type ButtonProps = {
   size?: "small" | "medium" | "large"
-  fullWidth?: boolean
   minimal?: boolean
+  fullWidth?: boolean
   icon?: JSX.Element
   as?: React.ElementType
 } & ButtonTypes
