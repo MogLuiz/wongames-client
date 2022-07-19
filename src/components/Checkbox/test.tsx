@@ -3,18 +3,15 @@ import { screen } from "@testing-library/react"
 import { renderWithTheme } from "utils/tests/helpers"
 
 // Components
-import Checkbox from "."
+import Checkbox, { CheckboxProps } from "."
 
-const factorySetupTest = () => {
-  const utils = renderWithTheme(
-    <Checkbox label="checkbox label" labelFor="check" />
-  )
+const factorySetupTest = (args?: CheckboxProps) => {
+  const utils = renderWithTheme(<Checkbox {...args} />)
 
   const InputElementByCheckboxRole = screen.getByRole("checkbox")
-  // this getting the input because the html attribute for associates the label with ID with the same value
   const InputElementByCheckboxLabelText =
-    screen.getByLabelText(/checkbox label/i)
-  const labelElementByText = screen.getByText(/checkbox label/i)
+    screen.queryByLabelText(/checkbox label/i)
+  const labelElementByText = screen.queryByText(/checkbox label/i)
 
   return {
     InputElementByCheckboxRole,
@@ -25,22 +22,24 @@ const factorySetupTest = () => {
 }
 
 describe("<Checkbox />", () => {
+  const factorySetupTestArgs = { label: "checkbox label", labelFor: "check" }
+
   it("should render with label", () => {
     const { InputElementByCheckboxRole, InputElementByCheckboxLabelText } =
-      factorySetupTest()
+      factorySetupTest(factorySetupTestArgs)
 
     expect(InputElementByCheckboxRole).toBeInTheDocument()
     expect(InputElementByCheckboxLabelText).toBeInTheDocument()
   })
 
   it("should make the correct association of the htmlFor(for) attribute", () => {
-    const { labelElementByText } = factorySetupTest()
+    const { labelElementByText } = factorySetupTest(factorySetupTestArgs)
 
     expect(labelElementByText).toHaveAttribute("for", "check")
   })
 
   it("should ensure that when the label property is not passed the HTML label element is not rendered", () => {
-    renderWithTheme(<Checkbox />)
+    factorySetupTest()
 
     expect(screen.queryByLabelText(/checkbox label/i)).not.toBeInTheDocument()
   })
