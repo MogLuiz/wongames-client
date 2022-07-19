@@ -47,7 +47,11 @@ describe("<Checkbox />", () => {
   })
 
   it("should render with black label", () => {
-    const { labelElementByText } = factorySetupTest(factorySetupTestArgs)
+    const { labelElementByText } = factorySetupTest({
+      label: "checkbox label",
+      labelFor: "check",
+      labelColor: "black"
+    })
 
     expect(labelElementByText).toHaveStyle({ color: theme.colors.black })
   })
