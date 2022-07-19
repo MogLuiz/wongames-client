@@ -2,6 +2,8 @@
 import { screen } from "@testing-library/react"
 import { renderWithTheme } from "utils/tests/helpers"
 
+import theme from "styles/theme"
+
 // Components
 import Checkbox, { CheckboxProps } from "."
 
@@ -42,5 +44,11 @@ describe("<Checkbox />", () => {
     factorySetupTest()
 
     expect(screen.queryByLabelText(/checkbox label/i)).not.toBeInTheDocument()
+  })
+
+  it("should render with black label", () => {
+    const { labelElementByText } = factorySetupTest(factorySetupTestArgs)
+
+    expect(labelElementByText).toHaveStyle({ color: theme.colors.black })
   })
 })
