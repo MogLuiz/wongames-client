@@ -76,5 +76,6 @@ describe("<Checkbox />", () => {
     await waitFor(() => {
       expect(onCheck).toHaveBeenCalledTimes(1)
     })
+    expect(onCheck).toHaveBeenCalledWith(true)
   })
 })
