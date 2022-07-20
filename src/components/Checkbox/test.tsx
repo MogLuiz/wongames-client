@@ -78,4 +78,22 @@ describe("<Checkbox />", () => {
     })
     expect(onCheck).toHaveBeenCalledWith(true)
   })
+
+  it("should checkbox has to initialize checked", async () => {
+    const onCheck = jest.fn()
+    const { InputElementByCheckboxRole } = factorySetupTest({
+      label: "Chekbox",
+      onCheck: onCheck,
+      isChecked: true
+    })
+
+    expect(onCheck).not.toHaveBeenCalled()
+
+    userEvent.click(InputElementByCheckboxRole)
+
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1)
+    })
+    expect(onCheck).toHaveBeenCalledWith(false)
+  })
 })
