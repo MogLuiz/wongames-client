@@ -1,8 +1,10 @@
 // Packages
-import { screen } from "@testing-library/react"
+import { screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+
+// Utils
 import { renderWithTheme } from "utils/tests/helpers"
 import { formatRegExpresion } from "utils/formatRegExpresion"
-
 import theme from "styles/theme"
 
 // Components
@@ -60,10 +62,19 @@ describe("<Checkbox />", () => {
     expect(labelElementByText).toHaveStyle({ color: theme.colors.black })
   })
 
-  it("should dispatch onCheck when status changes", () => {
+  it("should dispatch onCheck when status changes", async () => {
     const onCheck = jest.fn()
-    factorySetupTest({ label: "Chekbox", onCheck: onCheck })
+    const { InputElementByCheckboxRole } = factorySetupTest({
+      label: "Chekbox",
+      onCheck: onCheck
+    })
 
     expect(onCheck).not.toHaveBeenCalled()
+
+    userEvent.click(InputElementByCheckboxRole)
+
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1)
+    })
   })
 })
