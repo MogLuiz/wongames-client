@@ -12,4 +12,6 @@ export default {
   }
 } as Meta
 
-export const Default: Story<CheckboxProps> = (args) => <Checkbox {...args} />
+export const Default: Story<CheckboxProps> = (args) => (
+  <Checkbox isChecked={true} {...args} />
+)
