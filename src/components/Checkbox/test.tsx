@@ -96,4 +96,15 @@ describe("<Checkbox />", () => {
     })
     expect(onCheck).toHaveBeenCalledWith(false)
   })
+
+  it("should accessible with tab", () => {
+    const { InputElementByCheckboxLabelText } =
+      factorySetupTest(factorySetupTestArgs)
+
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+
+    expect(InputElementByCheckboxLabelText).toHaveFocus()
+  })
 })
