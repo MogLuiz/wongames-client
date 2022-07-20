@@ -24,4 +24,10 @@ describe("<Radio />", () => {
     expect(label).toBeInTheDocument()
     expect(label).toHaveStyle({ color: theme.colors.black })
   })
+
+  it("should render without label", () => {
+    renderWithTheme(<Radio />)
+
+    expect(screen.queryByLabelText("Radio")).not.toBeInTheDocument()
+  })
 })
