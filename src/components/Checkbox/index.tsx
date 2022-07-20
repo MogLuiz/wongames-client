@@ -1,5 +1,5 @@
 // Packages
-import React from "react"
+import React, { InputHTMLAttributes } from "react"
 
 // Styles
 import * as S from "./styles"
@@ -8,7 +8,7 @@ export type CheckboxProps = {
   label?: string
   labelFor?: string
   labelColor?: "white" | "black"
-}
+} & InputHTMLAttributes<HTMLInputElement>
 
 const Checkbox = ({
   label,
