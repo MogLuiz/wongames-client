@@ -2,8 +2,6 @@
 import styled, { css } from "styled-components"
 import { CheckboxProps } from "."
 
-type LabelProps = Pick<CheckboxProps, "labelColor">
-
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -49,7 +47,7 @@ export const Input = styled.input`
   `}
 `
 
-export const Label = styled.label<LabelProps>`
+export const Label = styled.label<Pick<CheckboxProps, "labelColor">>`
   ${({ theme, labelColor }) => css`
     cursor: pointer;
     padding-left: ${theme.spacings.xxsmall};
