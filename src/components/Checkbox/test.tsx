@@ -1,6 +1,7 @@
 // Packages
 import { screen } from "@testing-library/react"
 import { renderWithTheme } from "utils/tests/helpers"
+import { formatRegExpresion } from "utils/formatRegExpresion"
 
 import theme from "styles/theme"
 
@@ -11,9 +12,12 @@ const factorySetupTest = (args?: CheckboxProps) => {
   const utils = renderWithTheme(<Checkbox {...args} />)
 
   const InputElementByCheckboxRole = screen.getByRole("checkbox")
-  const InputElementByCheckboxLabelText =
-    screen.queryByLabelText(/checkbox label/i)
-  const labelElementByText = screen.queryByText(/checkbox label/i)
+  const InputElementByCheckboxLabelText = screen.queryByLabelText(
+    new RegExp(formatRegExpresion(args?.label), "i")
+  )
+  const labelElementByText = screen.queryByText(
+    new RegExp(formatRegExpresion(args?.label), "i")
+  )
 
   return {
     InputElementByCheckboxRole,
@@ -41,9 +45,9 @@ describe("<Checkbox />", () => {
   })
 
   it("should ensure that when the label property is not passed the HTML label element is not rendered", () => {
-    factorySetupTest()
+    const { labelElementByText } = factorySetupTest()
 
-    expect(screen.queryByLabelText(/checkbox label/i)).not.toBeInTheDocument()
+    expect(labelElementByText).not.toBeInTheDocument()
   })
 
   it("should render with black label", () => {
@@ -54,5 +58,12 @@ describe("<Checkbox />", () => {
     })
 
     expect(labelElementByText).toHaveStyle({ color: theme.colors.black })
+  })
+
+  it("should dispatch onCheck when status changes", () => {
+    const onCheck = jest.fn()
+    factorySetupTest({ label: "Chekbox", onCheck: onCheck })
+
+    expect(onCheck).not.toHaveBeenCalled()
   })
 })
