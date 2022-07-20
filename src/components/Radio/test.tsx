@@ -16,4 +16,12 @@ describe("<Radio />", () => {
     expect(label).toHaveStyle({ color: theme.colors.white })
     expect(container.firstChild).toMatchSnapshot()
   })
+
+  it("should render with label (black)", () => {
+    renderWithTheme(<Radio label="Radio" labelColor="black" />)
+
+    const label = screen.getByText("Radio")
+    expect(label).toBeInTheDocument()
+    expect(label).toHaveStyle({ color: theme.colors.black })
+  })
 })
