@@ -4,10 +4,7 @@ import React from "react"
 // Styles
 import * as S from "./styles"
 
-const Auth: React.FC = () => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+const Auth = () => (
   <S.Wrapper>
     <h1>Auth</h1>
   </S.Wrapper>
