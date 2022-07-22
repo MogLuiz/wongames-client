@@ -7,7 +7,12 @@ import Heading from "components/Heading"
 // Styles
 import * as S from "./styles"
 
-const Auth = () => (
+type AuthProps = {
+  title: string
+  children: React.ReactNode
+}
+
+const Auth = ({ children, title }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <Logo />
@@ -19,6 +24,16 @@ const Auth = () => (
 
       <S.Footer>Won Games 2022 © Todos os Direitos Reservados</S.Footer>
     </S.BannerBlock>
+
+    <S.Content>
+      <Logo size="large" color="black" />
+
+      <Heading color="black" lineColor="secondary" lineLeft>
+        {title}
+      </Heading>
+
+      {children}
+    </S.Content>
   </S.Wrapper>
 )
 
