@@ -1,15 +1,34 @@
-// Packages
-import { render, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
+import { renderWithTheme } from "utils/tests/helpers"
 
-// Components
 import Auth from "."
 
 describe("<Auth />", () => {
-  it("should render the heading", () => {
-    const { container } = render(<Auth />)
+  it("should render all components and children", () => {
+    renderWithTheme(
+      <Auth title="Auth Title">
+        <input type="text" />
+      </Auth>
+    )
 
-    expect(screen.getByRole("heading", { name: /Auth/i })).toBeInTheDocument()
+    expect(screen.getAllByRole("img", { name: /won games/i })).toHaveLength(2)
 
-    expect(container.firstChild).toMatchSnapshot()
+    expect(
+      screen.getByRole("heading", {
+        name: /Seus jogos favoritos em um só lugar/i
+      })
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole("heading", {
+        name: /A won é a melhor e mais completa plataforma de games/i
+      })
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole("heading", { name: /auth title/i })
+    ).toBeInTheDocument()
+
+    expect(screen.getByRole("textbox")).toBeInTheDocument()
   })
 })
