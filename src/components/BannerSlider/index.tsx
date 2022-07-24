@@ -29,10 +29,7 @@ const settings: SliderSettings = {
   ]
 }
 
-const BannerSlider: React.FC<BannerSliderProps> = ({ items }) => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+const BannerSlider = ({ items }: BannerSliderProps) => (
   <S.Wrapper>
     <Slider settings={settings}>
       {items.map((item: BannerProps) => (

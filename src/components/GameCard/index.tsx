@@ -30,7 +30,7 @@ export type GameCardProps = {
   onFav?: () => void
 }
 
-const GameCard: React.FC<GameCardProps> = ({
+const GameCard = ({
   title,
   developer,
   img,
@@ -41,10 +41,7 @@ const GameCard: React.FC<GameCardProps> = ({
   ribbonColor = "primary",
   ribbonSize = "small",
   onFav
-}) => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+}: GameCardProps) => (
   <S.Wrapper>
     {!!ribbon && (
       <Ribbon color={ribbonColor} size={ribbonSize}>

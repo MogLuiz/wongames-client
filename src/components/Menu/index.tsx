@@ -19,14 +19,9 @@ export type MenuProps = {
   userName?: string
 }
 
-const Menu: React.FC<MenuProps> = ({ userName }) => {
-  // -------------------------------------------------
-  // States
-  // -------------------------------------------------
+const Menu = ({ userName }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+
   return (
     <S.Wrapper>
       <MediaMatch lessThan="medium">

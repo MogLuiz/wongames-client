@@ -1,5 +1,7 @@
+// Packages
 import { useState, InputHTMLAttributes } from "react"
 
+// Styles
 import * as S from "./styles"
 
 export type TextFieldProps = {

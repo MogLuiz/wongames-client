@@ -16,17 +16,14 @@ export type ButtonProps = {
   as?: React.ElementType
 } & ButtonTypes
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   size = "medium",
   minimal = false,
   icon,
   fullWidth = false,
   ...props
-}) => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+}: ButtonProps) => (
   <S.Wrapper
     size={size}
     fullWidth={fullWidth}

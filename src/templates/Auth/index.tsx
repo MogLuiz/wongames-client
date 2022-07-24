@@ -1,6 +1,7 @@
 // Packages
 import React from "react"
 
+// Components
 import Logo from "components/Logo"
 import Heading from "components/Heading"
 

@@ -9,10 +9,7 @@ import Heading from "components/Heading"
 // Styles
 import * as S from "./styles"
 
-const Footer: React.FC = () => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+const Footer = () => (
   <S.Wrapper>
     <Logo color="black" />
     <S.Content>

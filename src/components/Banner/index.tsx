@@ -19,7 +19,7 @@ export type BannerProps = {
   ribbonSize?: RibbonSizes
 }
 
-const Banner: React.FC<BannerProps> = ({
+const Banner = ({
   buttonLabel,
   buttonLink,
   img,
@@ -28,10 +28,7 @@ const Banner: React.FC<BannerProps> = ({
   ribbon,
   ribbonColor = "primary",
   ribbonSize = "normal"
-}) => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+}: BannerProps) => (
   <S.Wrapper>
     {!!ribbon && (
       <Ribbon color={ribbonColor} size={ribbonSize}>

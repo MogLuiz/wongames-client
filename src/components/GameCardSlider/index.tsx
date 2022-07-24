@@ -16,13 +16,7 @@ export type GameCardSliderProps = {
   color?: "white" | "black"
 }
 
-const GameCardSlider: React.FC<GameCardSliderProps> = ({
-  items,
-  color = "black"
-}) => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+const GameCardSlider = ({ items, color = "black" }: GameCardSliderProps) => (
   <S.Wrapper color={color}>
     <Slider settings={settings}>
       {items.map((item, index) => (

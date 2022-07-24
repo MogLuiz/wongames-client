@@ -14,10 +14,7 @@ export type SliderProps = {
   settings: SliderSettings
 }
 
-const Slider: React.FC<SliderProps> = ({ children, settings }) => (
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+const Slider = ({ children, settings }: SliderProps) => (
   <S.Wrapper>
     <SlickSlider {...settings}>{children}</SlickSlider>
   </S.Wrapper>
