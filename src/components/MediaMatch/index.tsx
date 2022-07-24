@@ -2,9 +2,8 @@
 import styled, { css } from "styled-components"
 
 // Types
-import media, { DefaultBreakpoints } from "styled-media-query"
-
-type breakpoint = keyof DefaultBreakpoints
+import { breakpoint } from "./types"
+import media from "styled-media-query"
 
 export type MediaMatchProps = {
   lessThan?: breakpoint

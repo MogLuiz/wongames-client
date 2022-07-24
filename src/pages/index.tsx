@@ -1,5 +1,7 @@
+// Template
 import Home, { HomeTemplateProps } from "templates/Home"
 
+// Components
 import bannersMock from "components/BannerSlider/mock"
 import gamesMock from "components/GameCardSlider/mock"
 import highlightMock from "components/Highlight/mock"

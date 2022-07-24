@@ -1,10 +1,11 @@
 // Packages
 import React from "react"
 
+// Types
+import { LineColors } from "./types"
+
 // Styles
 import * as S from "./styles"
-
-export type LineColors = "primary" | "secondary"
 
 export type HeadingProps = {
   children: React.ReactNode

@@ -2,6 +2,7 @@
 import type { AppProps } from "next/app"
 import Head from "next/head"
 
+// Styles
 import { ThemeProvider } from "styled-components"
 import theme from "styles/theme"
 import GlobalStyles from "styles/global"

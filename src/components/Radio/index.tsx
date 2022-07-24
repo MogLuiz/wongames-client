@@ -1,10 +1,11 @@
 // Packages
 import { InputHTMLAttributes } from "react"
 
+// Types
+import { RadioValue } from "./types"
+
 // Styles
 import * as S from "./styles"
-
-type RadioValue = string | ReadonlyArray<string> | number
 
 export type RadioProps = {
   onCheck?: (value?: RadioValue) => void

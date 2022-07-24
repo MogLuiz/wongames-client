@@ -1,3 +1,4 @@
+// Packages
 import Document, {
   Html,
   Head,
@@ -5,6 +6,8 @@ import Document, {
   NextScript,
   DocumentContext
 } from "next/document"
+
+// Styles
 import { ServerStyleSheet } from "styled-components"
 
 export default class MyDocument extends Document {

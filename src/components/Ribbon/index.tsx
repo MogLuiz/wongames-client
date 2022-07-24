@@ -1,11 +1,11 @@
 // Packages
 import React from "react"
 
+// Types
+import { RibbonColors, RibbonSizes } from "./types"
+
 // Styles
 import * as S from "./styles"
-
-export type RibbonColors = "primary" | "secondary"
-export type RibbonSizes = "normal" | "small"
 
 export type RibbonProps = {
   children: React.ReactNode

@@ -2,12 +2,13 @@
 import React from "react"
 
 // Components
-import SlickSlider, { Settings } from "react-slick"
+import SlickSlider from "react-slick"
+
+// Types
+import { SliderSettings } from "./types"
 
 // Styles
 import * as S from "./styles"
-
-export type SliderSettings = Settings
 
 export type SliderProps = {
   children: React.ReactNode
