@@ -13,7 +13,7 @@ export type HeadingProps = {
   lineLeft?: boolean
   lineBottom?: boolean
   lineColor?: LineColors
-  size?: "small" | "medium"
+  size?: "small" | "medium" | "huge"
 }
 
 const Heading = ({
