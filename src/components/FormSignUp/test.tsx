@@ -8,14 +8,14 @@ import FormSignUp from "."
 const factorySetupTestHelper = () => {
   const utils = renderWithTheme(<FormSignUp />)
 
-  const nameFormInput = screen.getByPlaceholderText(/name/i)
+  const nameFormInput = screen.getByPlaceholderText(/Nome completo/i)
   const emailFormInput = screen.getByPlaceholderText(/email/i)
-  const passwordFormInput = screen.getByPlaceholderText("Password")
+  const passwordFormInput = screen.getByPlaceholderText("Senha")
   const confirmPasswordFormInput =
-    screen.getByPlaceholderText("Confirm password")
-  const signUpFormButton = screen.getByRole("button", { name: /sign up now/i })
-  const signInFormLink = screen.getByRole("link", { name: /sign in/i })
-  const haveAccountFormLink = screen.getByText(/already have an account\?/i)
+    screen.getByPlaceholderText("Confirmar senha")
+  const signUpFormButton = screen.getByRole("button", { name: /criar conta/i })
+  const signInFormLink = screen.getByRole("link", { name: /entrar/i })
+  const haveAccountFormLink = screen.getByText(/Já tem uma conta\?/i)
 
   return {
     ...utils,

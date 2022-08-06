@@ -11,7 +11,7 @@ const FormSignUp = () => (
     <form>
       <TextField
         name="name"
-        placeholder="Name"
+        placeholder="Nome completo"
         type="name"
         icon={<AccountCircle />}
       />
@@ -23,25 +23,25 @@ const FormSignUp = () => (
       />
       <TextField
         name="password"
-        placeholder="Password"
+        placeholder="Senha"
         type="password"
         icon={<Lock />}
       />
       <TextField
         name="confirm-password"
-        placeholder="Confirm password"
+        placeholder="Confirmar senha"
         type="password"
         icon={<Lock />}
       />
 
       <Button size="large" fullWidth>
-        Sign up now
+        Criar conta
       </Button>
 
       <S.FormLink>
-        Already have an account?{" "}
+        Já tem uma conta?{" "}
         <Link href="/sign-in">
-          <a>Sign in</a>
+          <a>Entrar</a>
         </Link>
       </S.FormLink>
     </form>
