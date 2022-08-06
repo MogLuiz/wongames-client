@@ -5,29 +5,47 @@ import { renderWithTheme } from "utils/tests/helpers"
 // Components
 import FormSignIn from "."
 
+const factorySetupTestHelper = () => {
+  const utils = renderWithTheme(<FormSignIn />)
+
+  const emailFormInput = screen.getByPlaceholderText(/email/i)
+  const passwordFormInput = screen.getByPlaceholderText(/password/i)
+  const buttonSignInForm = screen.getByRole("button", { name: /Entrar/i })
+  const signUpFormLink = screen.getByRole("link", { name: /Cadastre-se/i })
+  const forgotPasswordFormLink = screen.getByRole("link", {
+    name: /Esqueceu sua senha\?/i
+  })
+
+  return {
+    ...utils,
+    emailFormInput,
+    buttonSignInForm,
+    passwordFormInput,
+    signUpFormLink,
+    forgotPasswordFormLink
+  }
+}
+
 describe("<FormSignIn />", () => {
   it("should render the form", () => {
-    renderWithTheme(<FormSignIn />)
+    const { emailFormInput, passwordFormInput, buttonSignInForm } =
+      factorySetupTestHelper()
 
-    expect(screen.getByPlaceholderText(/email/i)).toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/password/i)).toBeInTheDocument()
-    expect(screen.getByRole("button", { name: /Entrar/i })).toBeInTheDocument()
+    expect(emailFormInput).toBeInTheDocument()
+    expect(passwordFormInput).toBeInTheDocument()
+    expect(buttonSignInForm).toBeInTheDocument()
   })
 
   it("should render the forgot password link", () => {
-    renderWithTheme(<FormSignIn />)
+    const { forgotPasswordFormLink } = factorySetupTestHelper()
 
-    expect(
-      screen.getByRole("link", { name: /Esqueceu sua senha\?/i })
-    ).toBeInTheDocument()
+    expect(forgotPasswordFormLink).toBeInTheDocument()
   })
 
   it("should render text to sign up if already have an account", () => {
-    renderWithTheme(<FormSignIn />)
+    const { signUpFormLink } = factorySetupTestHelper()
 
-    expect(
-      screen.getByRole("link", { name: /Cadastre-se/i })
-    ).toBeInTheDocument()
+    expect(signUpFormLink).toBeInTheDocument()
     expect(screen.getByText(/Ainda não tem uma conta\?/i)).toBeInTheDocument()
   })
 })
