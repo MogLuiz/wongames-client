@@ -37,7 +37,7 @@ const FormSignIn = () => (
     </Button>
 
     <S.FormLink>
-      Ainda não tem uma conta?
+      Ainda não tem uma conta?{" "}
       <Link href="/sign-up">
         <a>Cadastre-se</a>
       </Link>

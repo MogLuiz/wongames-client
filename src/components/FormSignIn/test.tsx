@@ -28,12 +28,14 @@ const factorySetupTestHelper = () => {
 
 describe("<FormSignIn />", () => {
   it("should render the form", () => {
-    const { emailFormInput, passwordFormInput, buttonSignInForm } =
+    const { emailFormInput, passwordFormInput, buttonSignInForm, container } =
       factorySetupTestHelper()
 
     expect(emailFormInput).toBeInTheDocument()
     expect(passwordFormInput).toBeInTheDocument()
     expect(buttonSignInForm).toBeInTheDocument()
+
+    expect(container.parentElement).toMatchSnapshot()
   })
 
   it("should render the forgot password link", () => {
