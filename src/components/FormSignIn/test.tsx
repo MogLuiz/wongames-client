@@ -21,4 +21,13 @@ describe("<FormSignIn />", () => {
       screen.getByRole("link", { name: /Esqueceu sua senha\?/i })
     ).toBeInTheDocument()
   })
+
+  it("should render text to sign up if already have an account", () => {
+    renderWithTheme(<FormSignIn />)
+
+    expect(
+      screen.getByRole("link", { name: /Cadastre-se/i })
+    ).toBeInTheDocument()
+    expect(screen.getByText(/Ainda não tem uma conta\?/i)).toBeInTheDocument()
+  })
 })
