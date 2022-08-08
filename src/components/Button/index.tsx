@@ -1,5 +1,5 @@
 // Packages
-import React from "react"
+import React, { forwardRef } from "react"
 
 // Types
 import { ButtonTypes } from "./types"
@@ -15,19 +15,23 @@ export type ButtonProps = {
   as?: React.ElementType
 } & ButtonTypes
 
-const Button = ({
-  children,
-  size = "medium",
-  minimal = false,
-  icon,
-  fullWidth = false,
-  ...props
-}: ButtonProps) => (
+const Button: React.ForwardRefRenderFunction<S.WrapperProps, ButtonProps> = (
+  {
+    children,
+    size = "medium",
+    minimal = false,
+    icon,
+    fullWidth = false,
+    ...props
+  },
+  ref
+) => (
   <S.Wrapper
     size={size}
     fullWidth={fullWidth}
     hasIcon={!!icon}
     minimal={minimal}
+    ref={ref}
     {...props}
   >
     {icon}
@@ -35,4 +39,4 @@ const Button = ({
   </S.Wrapper>
 )
 
-export default Button
+export default forwardRef(Button)
