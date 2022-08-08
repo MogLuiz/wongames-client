@@ -1,5 +1,6 @@
 // Packages
 import React, { useState } from "react"
+import Link from "next/link"
 
 // Assets
 import { ShoppingCart as ShoppingCartIcon } from "@styled-icons/material-outlined/ShoppingCart"
@@ -50,7 +51,9 @@ const Menu = ({ userName }: MenuProps) => {
         </S.IconWrapper>
         {!userName && (
           <MediaMatch greaterThan="medium">
-            <Button>Sign in</Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a">Sign in</Button>
+            </Link>
           </MediaMatch>
         )}
       </S.MenuGroup>
@@ -71,13 +74,15 @@ const Menu = ({ userName }: MenuProps) => {
 
         {!userName && (
           <S.RegisterBox>
-            <Button fullWidth size="large">
-              Entrar
-            </Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a" fullWidth size="large">
+                Entrar
+              </Button>
+            </Link>
             <span>ou</span>
-            <S.CreateAccount href="#" title="Sign In">
-              Crie sua conta
-            </S.CreateAccount>
+            <Link href="/sign-up" passHref>
+              <S.CreateAccount title="Sign In">Crie sua conta</S.CreateAccount>
+            </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>

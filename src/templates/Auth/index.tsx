@@ -1,5 +1,6 @@
 // Packages
 import React from "react"
+import Link from "next/link"
 
 // Components
 import Logo from "components/Logo"
@@ -17,7 +18,11 @@ const Auth = ({ children, title }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <S.BannerContent>
-        <Logo id="banner" />
+        <Link href="/">
+          <a>
+            <Logo id="banner" />
+          </a>
+        </Link>
 
         <div>
           <Heading size="huge">Seus jogos favoritos em um só lugar</Heading>
@@ -33,7 +38,11 @@ const Auth = ({ children, title }: AuthProps) => (
 
     <S.Content>
       <S.ContentWrapper>
-        <Logo size="large" color="black" id="content" />
+        <Link href="/">
+          <a>
+            <Logo size="large" color="black" id="content" />
+          </a>
+        </Link>
 
         <Heading color="black" lineColor="secondary" lineLeft>
           {title}
