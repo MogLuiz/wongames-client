@@ -1,12 +1,30 @@
 // Packages
 import React from "react"
 
+// Components
+import GameCardSlider from "components/GameCardSlider"
+import Heading from "components/Heading"
+import Highlight, { HighlightProps } from "components/Highlight"
+import { GameCardProps } from "components/GameCard"
+
 // Styles
 import * as S from "./styles"
 
-const Showcase = () => (
+export type ShowcaseProps = {
+  title?: string
+  highlight?: HighlightProps
+  games?: GameCardProps[]
+}
+
+const Showcase = ({ games, highlight, title }: ShowcaseProps) => (
   <S.Wrapper>
-    <h1>Showcase</h1>
+    {!!title && (
+      <Heading lineLeft lineColor="secondary">
+        {title}
+      </Heading>
+    )}
+    {!!highlight && <Highlight {...highlight} />}
+    {!!games && <GameCardSlider items={games} />}
   </S.Wrapper>
 )
 
