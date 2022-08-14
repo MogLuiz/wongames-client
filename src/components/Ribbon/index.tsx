@@ -24,3 +24,4 @@ const Ribbon = ({
 )
 
 export default Ribbon
+export type { RibbonColors, RibbonSizes }
