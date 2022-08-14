@@ -6,46 +6,51 @@ import { renderWithTheme } from "utils/tests/helpers"
 
 // Mock
 import "match-media-mock"
-
-const props = {
-  img: "https://source.unsplash.com/user/willianjusten/1042x580",
-  title: "Defy death",
-  subtitle: "<p>Play the new <strong>CrashLands</strong> season",
-  buttonLabel: "Buy now",
-  buttonLink: "/games/defy-death"
-}
+import { MockBannerHelperTest } from "./mock"
 
 // Components
-import Banner from "."
+import Banner, { BannerProps } from "."
+
+type TRestBannerProps = Pick<
+  BannerProps,
+  "ribbon" | "ribbonColor" | "ribbonSize"
+>
+
+const factorySetupTestHelper = (restProps?: TRestBannerProps) => {
+  const utils = renderWithTheme(
+    <Banner {...MockBannerHelperTest} {...restProps} />
+  )
+
+  const bannerTitle = screen.getByRole("heading", { name: /Defy death/i })
+  const bannerSubtitle = screen.getByRole("heading", {
+    name: /Play the new CrashLands season/i
+  })
+  const bannerImage = screen.getByRole("img", { name: /Defy death/i })
+  const ribbon = screen.queryByText(/My Ribbon/i)
+
+  return { ...utils, bannerTitle, bannerSubtitle, bannerImage, ribbon }
+}
 
 describe("<Banner />", () => {
   it("should render correctly", () => {
-    const { container } = renderWithTheme(<Banner {...props} />)
+    const { container, bannerTitle, bannerSubtitle, bannerImage } =
+      factorySetupTestHelper()
 
-    expect(
-      screen.getByRole("heading", { name: /Defy death/i })
-    ).toBeInTheDocument()
+    expect(bannerTitle).toBeInTheDocument()
 
-    expect(
-      screen.getByRole("heading", { name: /Play the new CrashLands season/i })
-    ).toBeInTheDocument()
+    expect(bannerSubtitle).toBeInTheDocument()
 
-    expect(screen.getByRole("img", { name: /Defy death/i })).toBeInTheDocument()
+    expect(bannerImage).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })
 
   it("should render a Ribbon", () => {
-    renderWithTheme(
-      <Banner
-        {...props}
-        ribbon="My Ribbon"
-        ribbonSize="small"
-        ribbonColor="secondary"
-      />
-    )
-
-    const ribbon = screen.getByText(/My Ribbon/i)
+    const { ribbon } = factorySetupTestHelper({
+      ribbon: "My Ribbon",
+      ribbonSize: "small",
+      ribbonColor: "secondary"
+    })
 
     expect(ribbon).toBeInTheDocument()
     expect(ribbon).toHaveStyle({ backgroundColor: "#3CD3C1" })
