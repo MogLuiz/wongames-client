@@ -16,9 +16,9 @@ type TRestBannerProps = Pick<
   "ribbon" | "ribbonColor" | "ribbonSize"
 >
 
-const factorySetupTestHelper = (restProps?: TRestBannerProps) => {
+const factorySetupTestHelper = (ribbonBannerProps?: TRestBannerProps) => {
   const utils = renderWithTheme(
-    <Banner {...MockBannerHelperTest} {...restProps} />
+    <Banner {...MockBannerHelperTest} {...ribbonBannerProps} />
   )
 
   const bannerTitle = screen.getByRole("heading", { name: /Defy death/i })
