@@ -1,13 +1,23 @@
 // Packages
 import React from "react"
 
+// Components
+import Container from "components/Container"
+import Menu from "components/Menu"
+
 // Styles
 import * as S from "./styles"
 
-const Base = () => (
-  <S.Wrapper>
-    <h1>Base</h1>
-  </S.Wrapper>
+export type BaseTemplateProps = {
+  children: React.ReactNode
+}
+
+const Base = ({ children }: BaseTemplateProps) => (
+  <section>
+    <Container>
+      <Menu />
+    </Container>
+  </section>
 )
 
 export default Base
