@@ -32,5 +32,6 @@ describe("<Base />", () => {
     )
 
     expect(screen.getByTestId("Mock Menu")).toBeInTheDocument()
+    expect(screen.getByTestId("Mock Footer")).toBeInTheDocument()
   })
 })
