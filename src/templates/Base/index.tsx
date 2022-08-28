@@ -4,6 +4,7 @@ import React from "react"
 // Components
 import Container from "components/Container"
 import Menu from "components/Menu"
+import Footer from "components/Footer"
 
 // Styles
 import * as S from "./styles"
@@ -17,6 +18,12 @@ const Base = ({ children }: BaseTemplateProps) => (
     <Container>
       <Menu />
     </Container>
+
+    <S.SectionFooter>
+      <Container>
+        <Footer />
+      </Container>
+    </S.SectionFooter>
   </section>
 )
 
