@@ -18,7 +18,7 @@ describe("<GameInfo />", () => {
     expect(
       screen.getByRole("heading", { name: /my game title/i })
     ).toBeInTheDocument()
-    expect(screen.getByText("$210,00")).toBeInTheDocument()
+    expect(screen.getByText(/\$210,00/)).toBeInTheDocument()
     expect(screen.getByText(/game description/i)).toBeInTheDocument()
   })
 
