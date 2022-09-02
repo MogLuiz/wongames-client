@@ -32,4 +32,10 @@ describe("<GameInfo />", () => {
       screen.getByRole("button", { name: /wishlist/i })
     ).toBeInTheDocument()
   })
+
+  it("should render the component with correct style", () => {
+    const { container } = renderWithTheme(<GameInfo {...props} />)
+
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
