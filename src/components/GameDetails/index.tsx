@@ -75,7 +75,9 @@ const GameDetails = ({
 
         <S.Block>
           <S.Label>Rating</S.Label>
-          <S.Description>18+</S.Description>
+          <S.Description>
+            {rating === "BR0" ? "FREE" : `${rating.replace("BR", "")}+`}
+          </S.Description>
         </S.Block>
 
         <S.Block>
