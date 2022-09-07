@@ -1,6 +1,9 @@
 // Packages
 import { Story, Meta } from "@storybook/react/types-6-0"
 
+// Mock
+import mockGame from "./mock"
+
 // Components
 import GameDetails, { GameDetailsProps } from "."
 
@@ -12,14 +15,21 @@ export default {
       default: "won-dark"
     }
   },
-  args: {
-    platforms: ["windows", "linux", "mac"]
-  },
+  args: mockGame,
   argTypes: {
+    releaseDate: {
+      control: "date"
+    },
     platforms: {
       control: {
         type: "inline-check",
         options: ["windows", "linux", "mac"]
+      }
+    },
+    genres: {
+      control: {
+        type: "inline-check",
+        options: ["Role-playing", "Narrative"]
       }
     }
   }
