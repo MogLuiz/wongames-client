@@ -84,7 +84,7 @@ const GameDetails = ({
 
         <S.Block>
           <S.Label>Genres</S.Label>
-          <S.Description>Action / Adventure</S.Description>
+          <S.Description>{genres.join(" / ")}</S.Description>
         </S.Block>
       </S.Content>
     </S.Wrapper>
