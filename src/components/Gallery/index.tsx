@@ -1,6 +1,9 @@
 // Packages
 import { useState } from "react"
 
+// Assets
+import { Close } from "@styled-icons/material-outlined/Close"
+
 // Utils
 import { settings } from "./utils"
 
@@ -38,11 +41,15 @@ const Gallery = ({ items }: GalleryProps) => {
         ))}
       </Slider>
 
-      <S.Modal
-        isOpen={isOpen}
-        aria-label="modal"
-        aria-hidden={!isOpen}
-      ></S.Modal>
+      <S.Modal isOpen={isOpen} aria-label="modal" aria-hidden={!isOpen}>
+        <S.Close
+          role="button"
+          aria-label="close modal"
+          onClick={() => setIsOpen(false)}
+        >
+          <Close size={40} />
+        </S.Close>
+      </S.Modal>
     </S.Wrapper>
   )
 }

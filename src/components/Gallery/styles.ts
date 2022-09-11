@@ -59,3 +59,15 @@ export const Modal = styled.div<ModalProps>`
     ${!isOpen && modalModifiers.close()}
   `}
 `
+export const Close = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+  `}
+`
