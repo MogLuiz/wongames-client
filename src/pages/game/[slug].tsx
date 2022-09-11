@@ -1,5 +1,4 @@
-const Game = () => {
-  return <h1>ola</h1>
-}
+import Game from "templates/Game"
 
-export default Game
+const GamePage = () => <Game />
+export default GamePage

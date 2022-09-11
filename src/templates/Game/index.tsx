@@ -1,13 +1,11 @@
-// Packages
-import React from "react"
+import Base from "templates/Base"
 
-// Styles
 import * as S from "./styles"
 
 const Game = () => (
-  <S.Wrapper>
+  <Base>
     <h1>Game</h1>
-  </S.Wrapper>
+  </Base>
 )
 
 export default Game
