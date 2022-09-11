@@ -3,13 +3,17 @@ import { SliderSettingsType } from "components/Slider"
 import { ArrowBackIos as ArrowLeft } from "@styled-icons/material-outlined/ArrowBackIos"
 import { ArrowForwardIos as ArrowRight } from "@styled-icons/material-outlined/ArrowForwardIos"
 
-export const settings: SliderSettingsType = {
-  prevArrow: <ArrowLeft aria-label="previous image" />,
-  nextArrow: <ArrowRight aria-label="next image" />,
-  slidesToShow: 4,
-  arrows: true,
+const commonSettings: SliderSettingsType = {
   infinite: false,
   lazyLoad: "ondemand",
+  arrows: true,
+  nextArrow: <ArrowRight aria-label="next image" />,
+  prevArrow: <ArrowLeft aria-label="previous image" />
+}
+
+export const settings: SliderSettingsType = {
+  ...commonSettings,
+  slidesToShow: 4,
   responsive: [
     {
       breakpoint: 1375,
@@ -36,4 +40,9 @@ export const settings: SliderSettingsType = {
       }
     }
   ]
+}
+
+export const modalSettings: SliderSettingsType = {
+  ...commonSettings,
+  slidesToShow: 1
 }
