@@ -1,9 +1,9 @@
 // Components
-import { SliderSettings } from "components/Slider"
+import { SliderSettingsType } from "components/Slider"
 import { ArrowBackIos as ArrowLeft } from "@styled-icons/material-outlined/ArrowBackIos"
 import { ArrowForwardIos as ArrowRight } from "@styled-icons/material-outlined/ArrowForwardIos"
 
-export const settings: SliderSettings = {
+export const settings: SliderSettingsType = {
   prevArrow: <ArrowLeft aria-label="previous games" />,
   nextArrow: <ArrowRight aria-label="next games" />,
   slidesToShow: 4,
