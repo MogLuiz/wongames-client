@@ -41,7 +41,7 @@ const Gallery = ({ items }: GalleryProps) => {
   return (
     <S.Wrapper>
       <Slider settings={settings} ref={slider}>
-        {items.map(({ label, src }) => (
+        {items.map(({ label, src }, index) => (
           <img
             role="button"
             key={`thumb-${label}`}
@@ -49,6 +49,7 @@ const Gallery = ({ items }: GalleryProps) => {
             alt={`Thumb - ${label}`}
             onClick={() => {
               setIsOpen(true)
+              slider.current!.slickGoTo(index, true)
             }}
           />
         ))}
