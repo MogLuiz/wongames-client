@@ -55,3 +55,14 @@ jest.mock("components/Showcase", () => ({
     return <div data-testid="Mock Showcase" />
   }
 }))
+
+describe("<Game />", () => {
+  it("should render the template with components", () => {
+    renderWithTheme(<Game {...props} />)
+    expect(screen.getByTestId("Mock Gallery")).toBeInTheDocument()
+    expect(screen.getByTestId("Mock GameDetails")).toBeInTheDocument()
+    expect(screen.getByTestId("Mock GameInfo")).toBeInTheDocument()
+    expect(screen.getAllByTestId("Mock Showcase")).toHaveLength(2)
+    expect(screen.getByText(/custom html/i)).toBeInTheDocument()
+  })
+})
