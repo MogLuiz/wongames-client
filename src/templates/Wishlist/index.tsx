@@ -1,13 +1,18 @@
-// Packages
-import React from "react"
+import Base from "templates/Base"
 
-// Styles
+import Container from "components/Container"
+import Heading from "components/Heading"
+
 import * as S from "./styles"
 
 const Wishlist = () => (
-  <S.Wrapper>
-    <h1>Wishlist</h1>
-  </S.Wrapper>
+  <Base>
+    <Container>
+      <Heading lineLeft lineColor="secondary">
+        Wishlist
+      </Heading>
+    </Container>
+  </Base>
 )
 
 export default Wishlist
