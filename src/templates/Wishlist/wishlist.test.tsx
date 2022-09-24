@@ -18,3 +18,14 @@ jest.mock("components/Showcase", () => ({
     return <div data-testid="Mock Showcase" />
   }
 }))
+
+describe("<Wishlist />", () => {
+  it("should render correctly", () => {
+    renderWithTheme(<Wishlist {...props} />)
+
+    expect(
+      screen.getByRole("heading", { name: /wishlist/i })
+    ).toBeInTheDocument()
+    expect(screen.getByTestId("Mock Showcase")).toBeInTheDocument()
+  })
+})
