@@ -1,15 +1,31 @@
-// Packages
-import { render, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
+import { renderWithTheme } from "utils/tests/helpers"
 
-// Components
 import Empty from "."
 
+const props = {
+  title: "A simple title",
+  description: "A simple description"
+}
+
 describe("<Empty />", () => {
-  it("should render the heading", () => {
-    const { container } = render(<Empty />)
+  it("should render correctly", () => {
+    renderWithTheme(<Empty {...props} hasLink />)
 
-    expect(screen.getByRole("heading", { name: /Empty/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole("image", {
+        name: /a gamer in a couch playing videogame/i
+      })
+    ).toBeInTheDocument()
 
-    expect(container.firstChild).toMatchSnapshot()
+    expect(
+      screen.getByRole("heading", { name: /a simple title/i })
+    ).toBeInTheDocument()
+
+    expect(screen.getByText(/a simple description/i)).toBeInTheDocument()
+
+    expect(
+      screen.getByRole("link", { name: /go back to store/i })
+    ).toHaveAttribute("href", "/")
   })
 })
