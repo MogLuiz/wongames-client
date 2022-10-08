@@ -7,14 +7,28 @@ import { Download } from "@styled-icons/boxicons-solid/Download"
 // Styles
 import * as S from "./styles"
 
+export type PaymentInfoProps = {
+  number: string
+  flag: string
+  img: string
+  purchaseDate: string
+}
+
 export type GameItemProps = {
   img: string
   title: string
   price: string
   downloadLink?: string
+  paymentInfo?: PaymentInfoProps
 }
 
-const GameItem = ({ img, price, title, downloadLink }: GameItemProps) => (
+const GameItem = ({
+  img,
+  price,
+  title,
+  downloadLink,
+  paymentInfo
+}: GameItemProps) => (
   <S.Wrapper>
     <S.GameContent>
       <S.ImageBox>
