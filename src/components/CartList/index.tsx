@@ -14,7 +14,7 @@ const CartList = ({ items, total }: CartListProps) => (
     ))}
 
     <S.Footer>
-      Total <S.Total>{total}</S.Total>
+      Total: <S.Total>{total}</S.Total>
     </S.Footer>
   </S.Wrapper>
 )
