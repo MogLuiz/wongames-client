@@ -1,10 +1,13 @@
-// Packages
-import React from "react"
+import GameItem, { GameItemProps } from "components/GameItem"
 
-// Styles
 import * as S from "./styles"
 
-const CartList = () => (
+export type CartListProps = {
+  items: GameItemProps[]
+  total: string
+}
+
+const CartList = ({ items, total }: CartListProps) => (
   <S.Wrapper>
     <h1>CartList</h1>
   </S.Wrapper>
