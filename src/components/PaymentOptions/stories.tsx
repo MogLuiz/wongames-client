@@ -8,9 +8,16 @@ export default {
   component: PaymentOptions,
   args: {
     cards: cardsMock
+  },
+  parameters: {
+    backgrounds: {
+      default: "won-dark"
+    }
   }
 } as Meta
 
 export const Default: Story<PaymentOptionsProps> = (args) => (
-  <PaymentOptions {...args} />
+  <div style={{ padding: 16, maxWidth: 400, margin: "0 auto" }}>
+    <PaymentOptions {...args} />
+  </div>
 )
