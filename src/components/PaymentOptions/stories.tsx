@@ -9,6 +9,11 @@ export default {
   args: {
     cards: cardsMock
   },
+  argTypes: {
+    handlePayment: {
+      action: "clicked"
+    }
+  },
   parameters: {
     backgrounds: {
       default: "won-dark"
