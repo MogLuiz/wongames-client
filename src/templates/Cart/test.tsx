@@ -51,3 +51,17 @@ jest.mock("components/Empty", () => ({
     return <div data-testid="Mock Empty" />
   }
 }))
+
+describe("<Cart />", () => {
+  it("should render sections", () => {
+    renderWithTheme(<Cart {...props} />)
+
+    expect(
+      screen.getByRole("heading", { name: /my cart/i })
+    ).toBeInTheDocument()
+    expect(screen.getByTestId("Mock Cart")).toBeInTheDocument()
+    expect(screen.getByTestId("Mock PaymentOptions")).toBeInTheDocument()
+    expect(screen.getByTestId("Mock Showcase")).toBeInTheDocument()
+    expect(screen.queryByTestId("Mock Empty")).not.toBeInTheDocument()
+  })
+})
