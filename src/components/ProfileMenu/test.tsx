@@ -1,15 +1,12 @@
-// Packages
-import { render, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
+import { renderWithTheme } from "utils/tests/helpers"
 
-// Components
 import ProfileMenu from "."
 
 describe("<ProfileMenu />", () => {
-  it("should render the heading", () => {
-    const { container } = render(<ProfileMenu />)
+  it("should render the menu", () => {
+    renderWithTheme(<ProfileMenu />)
 
-    expect(screen.getByRole("heading", { name: /ProfileMenu/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    // verificar os 4 links existentes
   })
 })
