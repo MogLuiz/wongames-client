@@ -8,15 +8,33 @@ import Button from "components/Button"
 import Checkbox from "components/Checkbox"
 import Radio from "components/Radio"
 
-import { ItemProps } from "./types"
+import { ItemProps, Values } from "./types"
 
 import * as S from "./styles"
 
 export type ExploreSidebarProps = {
   items: ItemProps[]
+  initialValues?: Values
+  onFilter: (values: Values) => void
 }
 
-const ExploreSidebar = ({ items }: ExploreSidebarProps) => {
+const ExploreSidebar = ({
+  items,
+  onFilter,
+  initialValues
+}: ExploreSidebarProps) => {
+  const [values, setValues] = useState(initialValues)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleChange = (name: string, value: string | boolean) => {
+    setValues((s) => ({ ...s, [name]: value }))
+  }
+
+  const handleFilter = () => {
+    onFilter(values as keyof typeof values)
+    setIsOpen(false)
+  }
+
   return (
     <S.Wrapper isOpen={isOpen}>
       <S.Overlay aria-hidden={isOpen} />
@@ -39,7 +57,7 @@ const ExploreSidebar = ({ items }: ExploreSidebarProps) => {
                   name={field.name}
                   label={field.label}
                   labelFor={field.name}
-                  isChecked={!!values[field.name]}
+                  isChecked={!!values![field.name]}
                   onCheck={(v) => handleChange(field.name, v)}
                 />
               ))}
@@ -53,7 +71,7 @@ const ExploreSidebar = ({ items }: ExploreSidebarProps) => {
                   name={item.name}
                   label={field.label}
                   labelFor={field.name}
-                  defaultChecked={field.name === values[item.name]}
+                  defaultChecked={field.name === values![item.name]}
                   onChange={() => handleChange(item.name, field.name)}
                 />
               ))}

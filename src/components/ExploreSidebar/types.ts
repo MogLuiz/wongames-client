@@ -9,3 +9,7 @@ export type ItemProps = {
   type: string
   fields: Field[]
 }
+
+export type Values = {
+  [field: string]: boolean | string
+}
