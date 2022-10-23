@@ -18,7 +18,11 @@ export type ExploreSidebarProps = {
 
 const ExploreSidebar = ({ items }: ExploreSidebarProps) => (
   <S.Wrapper>
-    <h1>ExploreSidebar</h1>
+    {items.map((item) => (
+      <Heading key={item.title} lineBottom lineColor="secondary" size="small">
+        {item.title}
+      </Heading>
+    ))}
   </S.Wrapper>
 )
 
