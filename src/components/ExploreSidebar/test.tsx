@@ -52,4 +52,20 @@ describe("<ExploreSidebar />", () => {
 
     expect(screen.getByRole("radio", { name: /low to high/i })).toBeChecked()
   })
+
+  it("should filter with initial values", () => {
+    const onFilter = jest.fn()
+
+    renderWithTheme(
+      <ExploreSidebar
+        items={items}
+        initialValues={{ windows: true, sort_by: "low-to-high" }}
+        onFilter={onFilter}
+      />
+    )
+
+    userEvent.click(screen.getByRole("button", { name: /filter/i }))
+
+    expect(onFilter).toBeCalledWith({ windows: true, sort_by: "low-to-high" })
+  })
 })
