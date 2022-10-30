@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react"
+import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 
 import { renderWithTheme } from "utils/tests/helpers"
@@ -66,6 +66,28 @@ describe("<ExploreSidebar />", () => {
 
     userEvent.click(screen.getByRole("button", { name: /filter/i }))
 
-    expect(onFilter).toBeCalledWith({ windows: true, sort_by: "low-to-high" })
+    waitFor(() => {
+      expect(onFilter).toBeCalledWith({ windows: true, sort_by: "low-to-high" })
+    })
+  })
+
+  it("should filter with checked values", () => {
+    const onFilter = jest.fn()
+
+    renderWithTheme(<ExploreSidebar items={items} onFilter={onFilter} />)
+
+    userEvent.click(screen.getByLabelText(/windows/i))
+    userEvent.click(screen.getByLabelText(/linux/i))
+    userEvent.click(screen.getByLabelText(/low to high/i))
+
+    userEvent.click(screen.getByRole("button", { name: /filter/i }))
+
+    waitFor(() => {
+      expect(onFilter).toBeCalledWith({
+        windows: true,
+        linux: true,
+        sort_by: "low-to-high"
+      })
+    })
   })
 })
