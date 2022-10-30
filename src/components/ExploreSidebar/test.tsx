@@ -119,7 +119,7 @@ describe("<ExploreSidebar />", () => {
 
     const Element = container.firstChild
 
-    expect(Element).not.toHaveStyleRule("opacity", "1", variant)
+    await expect(Element).not.toHaveStyleRule("opacity", "1", variant)
 
     await userEvent.click(screen.getByLabelText(/open filters/))
 
