@@ -21,17 +21,17 @@ export type ExploreSidebarProps = {
 const ExploreSidebar = ({
   items,
   onFilter,
-  initialValues
+  initialValues = {}
 }: ExploreSidebarProps) => {
   const [values, setValues] = useState(initialValues)
   const [isOpen, setIsOpen] = useState(false)
 
   const handleChange = (name: string, value: string | boolean) => {
-    setValues((s) => ({ ...s, [name]: value }))
+    setValues((previous) => ({ ...previous, [name]: value }))
   }
 
   const handleFilter = () => {
-    onFilter(values as keyof typeof values)
+    onFilter(values)
     setIsOpen(false)
   }
 
@@ -57,8 +57,8 @@ const ExploreSidebar = ({
                   name={field.name}
                   label={field.label}
                   labelFor={field.name}
-                  isChecked={values && !!values[field.name]}
-                  onCheck={(v) => handleChange(field.name, v)}
+                  isChecked={!!values[field.name]}
+                  onCheck={(value) => handleChange(field.name, value)}
                 />
               ))}
 
@@ -71,7 +71,7 @@ const ExploreSidebar = ({
                   name={item.name}
                   label={field.label}
                   labelFor={field.name}
-                  defaultChecked={values && field.name === values[item.name]}
+                  defaultChecked={field.name === values[item.name]}
                   onChange={() => handleChange(item.name, field.name)}
                 />
               ))}
