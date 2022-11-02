@@ -190,7 +190,9 @@ exports[`<CartList /> should render the cart list 1`] = `
   <div
     class="c7"
   >
-    Total: 
+    <span>
+      Total:
+    </span>
     <span
       class="c8"
     >
