@@ -1,12 +1,15 @@
-// Packages
-import React from "react"
+import { ShoppingCart } from "@styled-icons/material-outlined/ShoppingCart"
 
-// Styles
 import * as S from "./styles"
 
-const CartIcon = () => (
+export type CartIconProps = {
+  quantity?: number
+}
+
+const CartIcon = ({ quantity = 0 }: CartIconProps) => (
   <S.Wrapper>
-    <h1>CartIcon</h1>
+    {quantity > 0 && <S.Badge aria-label="Cart Items">{quantity}</S.Badge>}
+    <ShoppingCart aria-label="Shopping Cart" />
   </S.Wrapper>
 )
 
