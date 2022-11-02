@@ -1,15 +1,14 @@
-// Packages
-import { render, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
 
-// Components
+import { renderWithTheme } from "utils/tests/helpers"
+
 import CartIcon from "."
 
 describe("<CartIcon />", () => {
-  it("should render the heading", () => {
-    const { container } = render(<CartIcon />)
+  it("should render without badge", () => {
+    renderWithTheme(<CartIcon />)
 
-    expect(screen.getByRole("heading", { name: /CartIcon/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByLabelText(/shopping cart/i)).toBeInTheDocument()
+    expect(screen.queryByLabelText(/cart items/i)).not.toBeInTheDocument()
   })
 })
