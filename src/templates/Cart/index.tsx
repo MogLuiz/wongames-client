@@ -19,7 +19,7 @@ export type CartProps = {
   Pick<PaymentOptionsProps, "cards">
 
 const Cart = ({
-  items,
+  items = [],
   recommendedGames,
   recommendedHighlight,
   total,
