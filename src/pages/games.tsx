@@ -1,7 +1,7 @@
 import GamesTemplate, { GamesTemplateProps } from "templates/Games"
 
-import { gql } from "@apollo/client"
 import { initializeApollo } from "services/apollo"
+import { QUERY_GAMES } from "graphql/queries/games"
 
 import filterItemsMock from "components/ExploreSidebar/mock"
 
@@ -13,22 +13,9 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
   const { data } = await apolloClient.query({
-    query: gql`
-      query QueryGames {
-        games {
-          name
-          slug
-          cover {
-            url
-          }
-          developers {
-            name
-          }
-          price
-        }
-      }
-    `
+    query: QUERY_GAMES
   })
+
   return {
     props: {
       revalidate: 60,
