@@ -1,16 +1,34 @@
+import { useRouter } from "next/router"
+
+import { initializeApollo } from "services/apollo"
+import { QUERY_GAMES } from "graphql/queries/games"
+import { QueryGames, QueryGamesVariables } from "graphql/generated/QueryGames"
+
 import galleryMock from "components/Gallery/mock"
 import gamesMock from "components/GameCardSlider/mock"
 import highlightMock from "components/Highlight/mock"
 
 import Game, { GameTemplateProps } from "templates/Game"
 
-const GamePage = (props: GameTemplateProps) => <Game {...props} />
+const apolloClient = initializeApollo()
+
+const GamePage = (props: GameTemplateProps) => {
+  const { isFallback } = useRouter()
+
+  if (isFallback) return <span>Loading...</span>
+
+  return <Game {...props} />
+}
 
 export async function getStaticPaths() {
-  return {
-    paths: [{ params: { slug: "cyberpunk-2077" } }],
-    fallback: false
-  }
+  const { data } = await apolloClient.query<QueryGames, QueryGamesVariables>({
+    query: QUERY_GAMES,
+    variables: { limit: 9 }
+  })
+
+  const paths = data.games.map(({ slug }) => ({ params: { slug } }))
+
+  return { paths, fallback: true }
 }
 
 export async function getStaticProps() {
