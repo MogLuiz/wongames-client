@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react"
+import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { renderWithTheme } from "utils/tests/helpers"
 
@@ -16,11 +16,16 @@ describe("<UserDropdown />", () => {
 
     userEvent.click(screen.getByText(/willian/i))
 
-    expect(
-      screen.getByRole("link", { name: /my profile/i })
-    ).toBeInTheDocument()
-
-    expect(screen.getByRole("link", { name: /wishlist/i })).toBeInTheDocument()
-    expect(screen.getByRole("link", { name: /sign out/i })).toBeInTheDocument()
+    waitFor(() => {
+      expect(
+        screen.getByRole("link", { name: /my profile/i })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByRole("link", { name: /wishlist/i })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByRole("link", { name: /sign out/i })
+      ).toBeInTheDocument()
+    })
   })
 })
