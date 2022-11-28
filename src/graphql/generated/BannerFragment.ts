@@ -6,36 +6,32 @@
 import { ENUM_COMPONENTPAGERIBBON_COLOR, ENUM_COMPONENTPAGERIBBON_SIZE } from "./globalTypes";
 
 // ====================================================
-// GraphQL query operation: QueryHome
+// GraphQL fragment: BannerFragment
 // ====================================================
 
-export interface QueryHome_banners_image {
+export interface BannerFragment_image {
   __typename: "UploadFile";
   url: string;
 }
 
-export interface QueryHome_banners_button {
+export interface BannerFragment_button {
   __typename: "ComponentPageButton";
   label: string;
   link: string;
 }
 
-export interface QueryHome_banners_ribbon {
+export interface BannerFragment_ribbon {
   __typename: "ComponentPageRibbon";
   text: string | null;
   color: ENUM_COMPONENTPAGERIBBON_COLOR | null;
   size: ENUM_COMPONENTPAGERIBBON_SIZE | null;
 }
 
-export interface QueryHome_banners {
+export interface BannerFragment {
   __typename: "Banner";
-  image: QueryHome_banners_image | null;
+  image: BannerFragment_image | null;
   title: string;
   subtitle: string;
-  button: QueryHome_banners_button | null;
-  ribbon: QueryHome_banners_ribbon | null;
-}
-
-export interface QueryHome {
-  banners: QueryHome_banners[];
+  button: BannerFragment_button | null;
+  ribbon: BannerFragment_ribbon | null;
 }
