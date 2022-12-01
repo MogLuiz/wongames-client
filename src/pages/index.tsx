@@ -1,15 +1,13 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Home, { HomeTemplateProps } from "templates/Home"
 
 import { QUERY_HOME } from "graphql/queries/home"
 import { initializeApollo } from "services/apollo"
-import {
-  QueryHome,
-  QueryHome_banners,
-  QueryHome_newGames
-} from "graphql/generated/QueryHome"
+import { QueryHome, QueryHome_banners } from "graphql/generated/QueryHome"
 
 import highlightMock from "components/Highlight/mock"
 import gamesMock from "components/GameCardSlider/mock"
+import { useNewGamesDataFactory } from "hooks/domain/home/useNewGamesDataFactory"
 
 const bannerDataFactory = ({
   button,
@@ -30,20 +28,6 @@ const bannerDataFactory = ({
   })
 })
 
-const newGamesFactory = ({
-  name,
-  slug,
-  developers,
-  cover,
-  price
-}: QueryHome_newGames) => ({
-  title: name,
-  slug: slug,
-  developer: developers[0].name,
-  img: `http://localhost:1337${cover?.url}`,
-  price: price
-})
-
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
 }
@@ -54,8 +38,8 @@ export async function getStaticProps() {
     data: { banners, newGames }
   } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
+  const { newGamesFactoryComposition } = useNewGamesDataFactory(newGames)
   const bannersFactoryComposition = banners.map(bannerDataFactory)
-  const newGamesFactoryComposition = newGames.map(newGamesFactory)
 
   return {
     props: {
