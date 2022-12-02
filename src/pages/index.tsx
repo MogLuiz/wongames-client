@@ -5,11 +5,7 @@ import { QUERY_HOME } from "graphql/queries/home"
 import { initializeApollo } from "services/apollo"
 import { QueryHome } from "graphql/generated/QueryHome"
 
-import {
-  useNewGamesDataFactory,
-  useBannersDataFactory,
-  useUpcomingGamesDataFactory
-} from "hooks/domain/home"
+import { useGamesDataFactory, useBannersDataFactory } from "hooks/domain/home"
 
 import highlightMock from "components/Highlight/mock"
 import gamesMock from "components/GameCardSlider/mock"
@@ -25,8 +21,12 @@ export async function getStaticProps() {
   } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
   const { bannerData } = useBannersDataFactory(banners)
-  const { newGamesData } = useNewGamesDataFactory(newGames)
-  const { upcomingGamesData } = useUpcomingGamesDataFactory(upcomingGames)
+  const { newGamesData, freeGamesData, upcomingGamesData } =
+    useGamesDataFactory({
+      newGames,
+      upcomingGames,
+      freeGames
+    })
 
   return {
     props: {
@@ -37,7 +37,7 @@ export async function getStaticProps() {
       mostPopularGames: gamesMock,
       upcommingGames: upcomingGamesData,
       upcommingHighlight: highlightMock,
-      freeGames: gamesMock,
+      freeGames: freeGamesData,
       freeHighlight: highlightMock
     }
   }

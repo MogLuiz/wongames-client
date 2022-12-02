@@ -1,3 +1,2 @@
 export * from "./useBannersDataFactory"
-export * from "./useNewGamesDataFactory"
-export * from "./useUpcomingGamesDataFactory"
+export * from "./useGamesDataFactory"
