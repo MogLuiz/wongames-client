@@ -15,7 +15,7 @@ export const useNewGamesDataFactory = (newGames: Array<QueryHome_newGames>) => {
     price: price
   })
 
-  const newGamesFactoryComposition = newGames.map(newGamesFactory)
+  const newGamesData = newGames.map(newGamesFactory)
 
-  return { newGamesFactoryComposition }
+  return { newGamesData }
 }
