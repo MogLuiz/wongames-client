@@ -21,7 +21,7 @@ export default function Index(props: HomeTemplateProps) {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
   const {
-    data: { banners, newGames, upcomingGames }
+    data: { banners, newGames, upcomingGames, freeGames }
   } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
   const { bannerData } = useBannersDataFactory(banners)
