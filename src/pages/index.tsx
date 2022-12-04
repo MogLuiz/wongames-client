@@ -7,12 +7,10 @@ import { QUERY_HOME } from "graphql/queries/home"
 import { QueryHome } from "graphql/generated/QueryHome"
 
 import {
-  useGamesDataFactory,
   useBannersDataFactory,
-  useHighlightMapper
+  useHighlightMapper,
+  useGamesMapper
 } from "hooks/domain/home"
-
-import highlightMock from "components/Highlight/mock"
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -26,31 +24,21 @@ export async function getStaticProps() {
 
   const { bannerData } = useBannersDataFactory(banners)
   const { highlightMapper } = useHighlightMapper()
-  const {
-    newGamesData,
-    freeGamesData,
-    upcomingGamesData,
-    mostPopularGamesData
-  } = useGamesDataFactory({
-    newGames,
-    upcomingGames,
-    freeGames,
-    mostPopularGames: sections!.popularGames!.games
-  })
+  const { gamesMapper } = useGamesMapper()
 
   return {
     props: {
       revalidate: 10,
       banners: bannerData,
-      newGames: newGamesData,
+      newGames: gamesMapper(newGames),
       newGamesSectionTitle: sections?.newGames?.title,
       mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
-      mostPopularGames: mostPopularGamesData,
+      mostPopularGames: gamesMapper(sections!.popularGames!.games),
       mostPopularSectionTitle: sections?.popularGames?.title,
-      upcommingGames: upcomingGamesData,
+      upcommingGames: gamesMapper(upcomingGames),
       upcommingGamesSectionTitle: sections?.upcomingGames?.title,
       upcommingHighlight: highlightMapper(sections?.upcomingGames?.highlight),
-      freeGames: freeGamesData,
+      freeGames: gamesMapper(freeGames),
       freeGamesSectionTitle: sections?.freeGames?.title,
       freeHighlight: highlightMapper(sections?.freeGames?.highlight)
     }

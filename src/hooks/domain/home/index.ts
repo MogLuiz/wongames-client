@@ -1,3 +1,3 @@
 export * from "./useBannersDataFactory"
-export * from "./useGamesDataFactory"
+export * from "./useGamesMapper"
 export * from "./useHighlightMapper"
