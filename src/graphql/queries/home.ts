@@ -1,5 +1,9 @@
 import { gql } from "@apollo/client"
-import { BannerFragment, GameFragment } from "graphql/fragments"
+import {
+  BannerFragment,
+  GameFragment,
+  HighlightFragment
+} from "graphql/fragments"
 
 export const QUERY_HOME = gql`
   query QueryHome {
@@ -26,8 +30,42 @@ export const QUERY_HOME = gql`
     freeGames: games(where: { price: 0 }, sort: "release_date:asc", limit: 8) {
       ...GameFragment
     }
+
+    sections: home {
+      newGames {
+        title
+        highlight {
+          ...HighlightFragment
+        }
+      }
+
+      popularGames {
+        title
+        highlight {
+          ...HighlightFragment
+        }
+        games(limit: 8) {
+          ...GameFragment
+        }
+      }
+
+      upcomingGames {
+        title
+        highlight {
+          ...HighlightFragment
+        }
+      }
+
+      freeGames {
+        title
+        highlight {
+          ...HighlightFragment
+        }
+      }
+    }
   }
 
   ${BannerFragment}
   ${GameFragment}
+  ${HighlightFragment}
 `
