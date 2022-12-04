@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import Home, { HomeTemplateProps } from "templates/Home"
 
-import { QUERY_HOME } from "graphql/queries/home"
 import { initializeApollo } from "services/apollo"
+
+import { QUERY_HOME } from "graphql/queries/home"
 import { QueryHome } from "graphql/generated/QueryHome"
 
 import { useGamesDataFactory, useBannersDataFactory } from "hooks/domain/home"
 
 import highlightMock from "components/Highlight/mock"
-import gamesMock from "components/GameCardSlider/mock"
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -38,11 +38,15 @@ export async function getStaticProps() {
       revalidate: 10,
       banners: bannerData,
       newGames: newGamesData,
+      newGamesSectionTitle: sections?.newGames?.title,
       mostPopularHighlight: highlightMock,
       mostPopularGames: mostPopularGamesData,
+      mostPopularSectionTitle: sections?.popularGames?.title,
       upcommingGames: upcomingGamesData,
+      upcommingGamesSectionTitle: sections?.upcomingGames?.title,
       upcommingHighlight: highlightMock,
       freeGames: freeGamesData,
+      freeGamesSectionTitle: sections?.freeGames?.title,
       freeHighlight: highlightMock
     }
   }
