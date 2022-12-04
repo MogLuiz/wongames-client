@@ -7,7 +7,7 @@ import { QUERY_HOME } from "graphql/queries/home"
 import { QueryHome } from "graphql/generated/QueryHome"
 
 import {
-  useBannersDataFactory,
+  useBannersMapper,
   useHighlightMapper,
   useGamesMapper
 } from "hooks/domain/home"
@@ -22,14 +22,14 @@ export async function getStaticProps() {
     data: { banners, newGames, upcomingGames, freeGames, sections }
   } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
-  const { bannerData } = useBannersDataFactory(banners)
+  const { bannersMapper } = useBannersMapper()
   const { highlightMapper } = useHighlightMapper()
   const { gamesMapper } = useGamesMapper()
 
   return {
     props: {
       revalidate: 10,
-      banners: bannerData,
+      banners: bannersMapper(banners),
       newGames: gamesMapper(newGames),
       newGamesSectionTitle: sections?.newGames?.title,
       mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),

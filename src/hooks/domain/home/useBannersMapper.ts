@@ -1,7 +1,7 @@
 import { QueryHome_banners } from "graphql/generated/QueryHome"
 
-export const useBannersDataFactory = (banners: Array<QueryHome_banners>) => {
-  const bannerDataFactory = ({
+export const useBannersMapper = () => {
+  const formatBanner = ({
     button,
     image,
     ribbon,
@@ -20,7 +20,9 @@ export const useBannersDataFactory = (banners: Array<QueryHome_banners>) => {
     })
   })
 
-  const bannerData = banners.map(bannerDataFactory)
+  const bannersMapper = (banners: Array<QueryHome_banners>) => {
+    return banners.length ? banners.map(formatBanner) : null
+  }
 
-  return { bannerData }
+  return { bannersMapper }
 }

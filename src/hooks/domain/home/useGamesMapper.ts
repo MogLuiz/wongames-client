@@ -16,7 +16,7 @@ export const useGamesMapper = () => {
   })
 
   const gamesMapper = (games: Array<QueryHome_newGames>) => {
-    return games.map(formatGame)
+    return games.length ? games.map(formatGame) : null
   }
 
   return {
