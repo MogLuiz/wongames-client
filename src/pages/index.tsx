@@ -6,7 +6,11 @@ import { initializeApollo } from "services/apollo"
 import { QUERY_HOME } from "graphql/queries/home"
 import { QueryHome } from "graphql/generated/QueryHome"
 
-import { useGamesDataFactory, useBannersDataFactory } from "hooks/domain/home"
+import {
+  useGamesDataFactory,
+  useBannersDataFactory,
+  useHighlightMapper
+} from "hooks/domain/home"
 
 import highlightMock from "components/Highlight/mock"
 
@@ -21,6 +25,7 @@ export async function getStaticProps() {
   } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
   const { bannerData } = useBannersDataFactory(banners)
+  const { highlightMapper } = useHighlightMapper()
   const {
     newGamesData,
     freeGamesData,
@@ -39,15 +44,15 @@ export async function getStaticProps() {
       banners: bannerData,
       newGames: newGamesData,
       newGamesSectionTitle: sections?.newGames?.title,
-      mostPopularHighlight: highlightMock,
+      mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
       mostPopularGames: mostPopularGamesData,
       mostPopularSectionTitle: sections?.popularGames?.title,
       upcommingGames: upcomingGamesData,
       upcommingGamesSectionTitle: sections?.upcomingGames?.title,
-      upcommingHighlight: highlightMock,
+      upcommingHighlight: highlightMapper(sections?.upcomingGames?.highlight),
       freeGames: freeGamesData,
       freeGamesSectionTitle: sections?.freeGames?.title,
-      freeHighlight: highlightMock
+      freeHighlight: highlightMapper(sections?.freeGames?.highlight)
     }
   }
 }
