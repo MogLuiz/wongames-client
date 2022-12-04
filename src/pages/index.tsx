@@ -17,16 +17,21 @@ export default function Index(props: HomeTemplateProps) {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
   const {
-    data: { banners, newGames, upcomingGames, freeGames }
+    data: { banners, newGames, upcomingGames, freeGames, sections }
   } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
   const { bannerData } = useBannersDataFactory(banners)
-  const { newGamesData, freeGamesData, upcomingGamesData } =
-    useGamesDataFactory({
-      newGames,
-      upcomingGames,
-      freeGames
-    })
+  const {
+    newGamesData,
+    freeGamesData,
+    upcomingGamesData,
+    mostPopularGamesData
+  } = useGamesDataFactory({
+    newGames,
+    upcomingGames,
+    freeGames,
+    mostPopularGames: sections!.popularGames!.games
+  })
 
   return {
     props: {
@@ -34,7 +39,7 @@ export async function getStaticProps() {
       banners: bannerData,
       newGames: newGamesData,
       mostPopularHighlight: highlightMock,
-      mostPopularGames: gamesMock,
+      mostPopularGames: mostPopularGamesData,
       upcommingGames: upcomingGamesData,
       upcommingHighlight: highlightMock,
       freeGames: freeGamesData,

@@ -1,19 +1,22 @@
 import {
   QueryHome_newGames,
   QueryHome_upcomingGames,
-  QueryHome_freeGames
+  QueryHome_freeGames,
+  QueryHome_sections_popularGames_games
 } from "graphql/generated/QueryHome"
 
 type TUseGamesDataFactoryProps = {
   newGames: Array<QueryHome_newGames>
   upcomingGames: Array<QueryHome_upcomingGames>
   freeGames: Array<QueryHome_freeGames>
+  mostPopularGames: Array<QueryHome_sections_popularGames_games>
 }
 
 export const useGamesDataFactory = ({
   newGames,
   upcomingGames,
-  freeGames
+  freeGames,
+  mostPopularGames
 }: TUseGamesDataFactoryProps) => {
   const gamesFactory = ({
     name,
@@ -32,6 +35,12 @@ export const useGamesDataFactory = ({
   const newGamesData = newGames.map(gamesFactory)
   const upcomingGamesData = upcomingGames.map(gamesFactory)
   const freeGamesData = freeGames.map(gamesFactory)
+  const mostPopularGamesData = mostPopularGames.map(gamesFactory)
 
-  return { newGamesData, upcomingGamesData, freeGamesData }
+  return {
+    newGamesData,
+    upcomingGamesData,
+    freeGamesData,
+    mostPopularGamesData
+  }
 }
